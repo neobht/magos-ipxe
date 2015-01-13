@@ -11,7 +11,7 @@ set base_url /repository/netlive
 
 # Figure out if client is 64-bit capable
 cpuid --ext 29 && set arch x86_64 || set arch i586
-cpuid --ext 29 && set archu amd64 || set arch i386
+cpuid --ext 29 && set archu amd64 || set archu i386
 
 
 ###################### MAIN MENU ####################################
@@ -20,8 +20,8 @@ cpuid --ext 29 && set archu amd64 || set arch i386
 menu
 item --gap --             ------------------------- Operating systems ------------------------------
 item --key a menu_alt      Boot MagOS_AltLinux ${arch} from Internet
-item --key a menu_mageia   Boot MagOS_Mageia Linux ${arch} from Internet
-item --key a menu_ubuntu   Boot MagOS_Ubuntu Linux ${archu} from Internet
+item --key m menu_mageia   Boot MagOS_Mageia Linux ${arch} from Internet
+item --key u menu_ubuntu   Boot MagOS_Ubuntu Linux ${archu} from Internet
 item
 item --key x exit         Exit iPXE and continue BIOS boot
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
