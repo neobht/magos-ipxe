@@ -1,0 +1,35 @@
+#!ipxe
+
+dhcp ||
+
+console --picture http://boot.ipxe.org/ipxe.png ||
+
+:start
+menu MagOS Linux NetLive Menu
+item  magos_ipxe 	Boot MagOS Linux from GITHUB MagOS iPXE Menu
+item  magos_sibsau 	Boot MagOS Linux from http://magos.sibsau.ru
+item
+item ipxe_shell 	Enter iPXE shell
+item ipxe_config 	Enter iPXE config
+item
+item exit		Exit
+choose --default magos_ipxe --timeout 3000 target && goto ${target}
+
+:magos_ipxe
+chain https://raw.githubusercontent.com/neobht/magos-ipxe/master/global-menu.ipxe
+goto start
+
+:magos_sibsau
+chain http://magos.sibsau.ru/netload/boot.php
+goto start
+
+:ipxe_shell
+shell
+goto start
+
+:ipxe_config
+config
+goto start
+
+:exit
+exit
