@@ -16,7 +16,7 @@ set iso_alt_icewm http://nightly.altlinux.org/p7/release/altlinux-p7-icewm-20141
  
 :start
 menu
-item --gap --             ------------------------- Operating systems ------------------------------
+item --gap --             ------------------------- Операционные системы ------------------------------
 item --key a menu_alt      Boot AltLinux from Internet
 item --key a menu_mageia   Boot Mageia Linux from Internet
 item
