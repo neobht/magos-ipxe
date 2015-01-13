@@ -11,6 +11,7 @@ set server_magos_sibsau http://magos.sibsau.ru
 set base_url /repository/netlive
 
 
+
 ###################### MAIN MENU ####################################
  
 :start
@@ -38,7 +39,7 @@ item alt_centaurus        MagOS_AltLinux Centaurus
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
 goto ${selected}
 
-:menu_alt
+:menu_mageia
 menu MagOS_Mageia NetLive Menu
 item mageia4.1            MagOS_Mageia 4.1 KDE
 item mageia5              MagOS_Mageia 5beta1 KDE
@@ -47,70 +48,69 @@ goto ${selected}
 
 
 :alt_icewm
-set iso_alt http://nightly.altlinux.org/p7/release/altlinux-p7-icewm-20141212-x86_64.iso
+set iso http://nightly.altlinux.org/p7/release/altlinux-p7-icewm-20141212-x86_64.iso
 echo -n Params: && read params
+set magos_params ${params} uird.from=${server_magos_sibsau}${base_url}/multi/MagOS/base/x86_64/;${iso};${server_magos_sibsau}${base_url}/multi/MagOS/optional/90/ uird.load=* uird.noload=/x86_64/ uird.ro=*.xzm,*/live,*.sqfs root=uird: rw vga=788 lang=ru_RU plymouth.enable=0
 
-#kernel ${server_magos_sibsau}${base_url}/multi/MagOS/x86_64/vmlinuz  
+initrd ${server_magos_sibsau}${base_url}/multi/MagOS/x86_64/uird.soft.cpio.xz
 initrd ${server_magos_sibsau}${base_url}/multi/MagOS/x86_64/uird.magos.cpio.xz
 
-#imgargs  ${params} uird.from=${server_magos_sibsau}${base_url}/multi/MagOS/base/x86_64/;${iso_alt};${server_magos_sibsau}${base_url}/multi/MagOS/optional/90/ uird.load=* uird.noload=/x86_64/ uird.ro=*.xzm,*/live root=uird: rw vga=788 lang=ru_RU plymouth.enable=0
-chain ${server_magos_sibsau}${base_url}/multi/MagOS/x86_64/vmlinuz ${params} uird.from=${server_magos_sibsau}${base_url}/multi/MagOS/base/x86_64/;${iso_alt};${server_magos_sibsau}${base_url}/multi/MagOS/optional/90/ uird.load=* uird.noload=/x86_64/ uird.ro=*.xzm,*/live root=uird: rw vga=788 lang=ru_RU plymouth.enable=0 ||
-
+chain ${server_magos_sibsau}${base_url}/multi/MagOS/x86_64/vmlinuz ${magos_params} ||
 goto start
 
 :alt_lxde
-set iso_alt http://nightly.altlinux.org/p7/release/altlinux-p7-lxde-20141212-x86_64.iso
+set iso http://nightly.altlinux.org/p7/release/altlinux-p7-lxde-20141212-x86_64.iso
 echo -n Params: && read params
+set magos_params ${params} uird.from=${server_magos_sibsau}${base_url}/multi/MagOS/base/x86_64/;${iso};${server_magos_sibsau}${base_url}/multi/MagOS/optional/90/ uird.load=* uird.noload=/x86_64/ uird.ro=*.xzm,*/live,*.sqfs root=uird: rw vga=788 lang=ru_RU plymouth.enable=0
 
-kernel ${server_magos_sibsau}${base_url}/multi/MagOS/x86_64/vmlinuz  
+initrd ${server_magos_sibsau}${base_url}/multi/MagOS/x86_64/uird.soft.cpio.xz
 initrd ${server_magos_sibsau}${base_url}/multi/MagOS/x86_64/uird.magos.cpio.xz
 
-imgargs  ${params} uird.from=${server_magos_sibsau}${base_url}/multi/MagOS/base/x86_64/;${iso_alt};${server_magos_sibsau}${base_url}/multi/MagOS/optional/90/ uird.load=* uird.noload=/x86_64/ uird.ro=*.xzm,*/live root=uird: rw vga=788 lang=ru_RU
-boot ${server_magos_sibsau}${base_url}/multi/MagOS/x86_64/vmlinuz
+chain ${server_magos_sibsau}${base_url}/multi/MagOS/x86_64/vmlinuz ${magos_params} ||
 goto start
 
 :alt_mate
-set iso_alt http://nightly.altlinux.org/p7/release/altlinux-p7-mate-20141212-x86_64.iso
+set iso http://nightly.altlinux.org/p7/release/altlinux-p7-mate-20141212-x86_64.iso
 echo -n Params: && read params
+set magos_params ${params} uird.from=${server_magos_sibsau}${base_url}/multi/MagOS/base/x86_64/;${iso};${server_magos_sibsau}${base_url}/multi/MagOS/optional/90/ uird.load=* uird.noload=/x86_64/ uird.ro=*.xzm,*/live,*.sqfs root=uird: rw vga=788 lang=ru_RU plymouth.enable=0
 
-kernel ${server_magos_sibsau}${base_url}/multi/MagOS/x86_64/vmlinuz  
+initrd ${server_magos_sibsau}${base_url}/multi/MagOS/x86_64/uird.soft.cpio.xz
 initrd ${server_magos_sibsau}${base_url}/multi/MagOS/x86_64/uird.magos.cpio.xz
 
-imgargs  ${params} uird.from=${server_magos_sibsau}${base_url}/multi/MagOS/base/x86_64/;${iso_alt};${server_magos_sibsau}${base_url}/multi/MagOS/optional/90/ uird.load=* uird.noload=/x86_64/ uird.ro=*.xzm,*/live root=uird: rw vga=788 lang=ru_RU
-boot ${server_magos_sibsau}${base_url}/multi/MagOS/x86_64/vmlinuz
+chain ${server_magos_sibsau}${base_url}/multi/MagOS/x86_64/vmlinuz ${magos_params} ||
 goto start
 
 :alt_school
-set iso_alt http://mirror.yandex.ru/altlinux/p7/images/school/altlinux-7.0.4-school-master-x86_64-ru-install-dvd5.iso
+set iso http://mirror.yandex.ru/altlinux/p7/images/school/altlinux-7.0.4-school-master-x86_64-ru-install-dvd5.iso
 echo -n Params: && read params
+set magos_params ${params} uird.from=${server_magos_sibsau}${base_url}/multi/MagOS/base/x86_64/;${iso};${server_magos_sibsau}${base_url}/multi/MagOS/optional/90/ uird.load=* uird.noload=/x86_64/ uird.ro=*.xzm,*/live,*.sqfs root=uird: rw vga=788 lang=ru_RU plymouth.enable=0
 
-kernel ${server_magos_sibsau}${base_url}/multi/MagOS/x86_64/vmlinuz  
+initrd ${server_magos_sibsau}${base_url}/multi/MagOS/x86_64/uird.soft.cpio.xz
 initrd ${server_magos_sibsau}${base_url}/multi/MagOS/x86_64/uird.magos.cpio.xz
 
-imgargs  ${params} uird.from=${server_magos_sibsau}${base_url}/multi/MagOS/base/x86_64/;${iso_alt};${server_magos_sibsau}${base_url}/multi/MagOS/optional/90/ uird.load=* uird.noload=/x86_64/ uird.ro=*.xzm,*/live root=uird: rw vga=788 lang=ru_RU
-boot ${server_magos_sibsau}${base_url}/multi/MagOS/x86_64/vmlinuz
+chain ${server_magos_sibsau}${base_url}/multi/MagOS/x86_64/vmlinuz ${magos_params} ||
 goto start
 
 :alt_simply
-set iso_alt http://mirror.yandex.ru/altlinux/p7/images/simply/altlinux-7.0.4-simply-x86_64-live-dvd5.iso 
+set iso http://mirror.yandex.ru/altlinux/p7/images/simply/altlinux-7.0.4-simply-x86_64-live-dvd5.iso 
 echo -n Params: && read params
+set magos_params ${params} uird.from=${server_magos_sibsau}${base_url}/multi/MagOS/base/x86_64/;${iso};${server_magos_sibsau}${base_url}/multi/MagOS/optional/90/ uird.load=* uird.noload=/x86_64/ uird.ro=*.xzm,*/live,*.sqfs root=uird: rw vga=788 lang=ru_RU plymouth.enable=0
 
-kernel ${server_magos_sibsau}${base_url}/multi/MagOS/x86_64/vmlinuz  
+initrd ${server_magos_sibsau}${base_url}/multi/MagOS/x86_64/uird.soft.cpio.xz
 initrd ${server_magos_sibsau}${base_url}/multi/MagOS/x86_64/uird.magos.cpio.xz
 
-imgargs  ${params} uird.from=${server_magos_sibsau}${base_url}/multi/MagOS/base/x86_64/;${iso_alt};${server_magos_sibsau}${base_url}/multi/MagOS/optional/90/ uird.load=* uird.noload=/x86_64/ uird.ro=*.xzm,*/live root=uird: rw vga=788 lang=ru_RU
-boot ${server_magos_sibsau}${base_url}/multi/MagOS/x86_64/vmlinuz
+chain ${server_magos_sibsau}${base_url}/multi/MagOS/x86_64/vmlinuz ${magos_params} ||
 goto start
 
 :alt_centaurus
-set iso_alt http://mirror.yandex.ru/altlinux/p7/images/centaurus/altlinux-7.0.4-centaurus-x86_64-ru-live-cd.iso
+set iso http://mirror.yandex.ru/altlinux/p7/images/centaurus/altlinux-7.0.4-centaurus-x86_64-ru-live-cd.iso
 echo -n Params: && read params
+set magos_params ${params} uird.from=${server_magos_sibsau}${base_url}/multi/MagOS/base/x86_64/;${iso};${server_magos_sibsau}${base_url}/multi/MagOS/optional/90/ uird.load=* uird.noload=/x86_64/ uird.ro=*.xzm,*/live,*.sqfs root=uird: rw vga=788 lang=ru_RU plymouth.enable=0
 
-kernel ${server_magos_sibsau}${base_url}/multi/MagOS/x86_64/vmlinuz  
+initrd ${server_magos_sibsau}${base_url}/multi/MagOS/x86_64/uird.soft.cpio.xz
 initrd ${server_magos_sibsau}${base_url}/multi/MagOS/x86_64/uird.magos.cpio.xz
 
-imgargs  ${params} uird.from=${server_magos_sibsau}${base_url}/multi/MagOS/base/x86_64/;${iso_alt};${server_magos_sibsau}${base_url}/multi/MagOS/optional/90/ uird.load=* uird.noload=/x86_64/ uird.ro=*.xzm,*/live root=uird: rw vga=788 lang=ru_RU
-boot ${server_magos_sibsau}${base_url}/multi/MagOS/x86_64/vmlinuz
+chain ${server_magos_sibsau}${base_url}/multi/MagOS/x86_64/vmlinuz ${magos_params} ||
 goto start
 
 
