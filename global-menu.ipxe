@@ -55,7 +55,7 @@ goto ${selected}
 
 :menu_ubuntu
 menu MagOS_Ubuntu NetLive Menu
-item ubuntukylin           MagOS_Ubuntukylin 14.10
+item ubuntu               MagOS_Ubuntu Desktop 14.04.1
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
 goto ${selected}
 
@@ -170,8 +170,8 @@ initrd ${server_magos_sibsau}${base_url}/multi/MagOS/${arch}/uird.magos.cpio.xz 
 chain ${server_magos_sibsau}${base_url}/multi/MagOS/${arch}/vmlinuz ${magos_params} ||
 goto start
 
-:ubuntukylin
-set iso http://mirror.yandex.ru/ubuntu-cdimage/ubuntukylin/releases/14.10/release/ubuntukylin-14.10-desktop-${archu}.iso
+:ubuntu
+set iso http://linux.nsu.ru/ubuntu-releases/14.04.1/ubuntu-14.04.1-desktop-${archu}.iso
 echo -n Params: && read params
 set magos_params ${params} uird.from=${server_magos_sibsau}${base_url}/multi/MagOS/base/${arch}/;${iso};${server_magos_sibsau}${base_url}/multi/MagOS/optional/90/ uird.load=* uird.noload=/${arch}/ uird.ro=*.xzm,*/live,*.sqfs,*.squashfs root=uird: rw vga=788 lang=ru_RU plymouth.enable=0
 
