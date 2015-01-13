@@ -44,5 +44,5 @@ kernel ${server_magos_sibsau}${base_url}/multi/MagOS/x86_64/vmlinuz
 initrd ${server_magos_sibsau}${base_url}/multi/MagOS/x86_64/uird.magos.cpio.xz
 
 imgargs  ${params} uird.from=${server_magos_sibsau}${base_url}/multi/MagOS/base/x86_64/;${iso_alt_icewm};${server_magos_sibsau}${base_url}/multi/MagOS/optional/90/ uird.load=* uird.noload=/x86_64/ uird.ro=*.xzm,*/live root=uird: rw vga=788 lang=ru_RU
-boot
+boot ${server_magos_sibsau}${base_url}/multi/MagOS/x86_64/vmlinuz
 goto start
