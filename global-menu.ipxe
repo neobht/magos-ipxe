@@ -48,8 +48,10 @@ goto ${selected}
 
 :menu_mageia
 menu MagOS_Mageia NetLive Menu
-item mageia4.1            MagOS_Mageia 4.1 KDE
-item mageia5              MagOS_Mageia 5beta1 KDE
+item mageia4.1_kde            MagOS_Mageia 4.1 KDE
+item mageia4.1_gnome          MagOS_Mageia 4.1 Gnome
+item mageia5_kde              MagOS_Mageia 5beta1 KDE
+item mageia5_gnome            MagOS_Mageia 5beta1 Gnome
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
 goto ${selected}
 
@@ -169,6 +171,51 @@ initrd ${server_magos_sibsau}${base_url}/multi/MagOS/${arch}/uird.magos.cpio.xz 
 
 chain ${server_magos_sibsau}${base_url}/multi/MagOS/${arch}/vmlinuz ${magos_params} ||
 goto start
+
+:mageia4.1_gnome
+set iso http://mirror.yandex.ru/mageia/iso/4.1/Mageia-4.1-LiveDVD-GNOME-${arch}-DVD/Mageia-4.1-LiveDVD-GNOME-${arch}-DVD.iso
+echo -n Params: && read params
+set magos_params ${params} uird.from=${server_magos_sibsau}${base_url}/multi/MagOS/base/${arch}/;${iso};${server_magos_sibsau}${base_url}/multi/MagOS/optional/90/ uird.load=* uird.noload=/${arch}/ uird.ro=*.xzm,*/live,*.sqfs root=uird: rw vga=788 lang=ru_RU plymouth.enable=0
+
+initrd ${server_magos_sibsau}${base_url}/multi/MagOS/${arch}/uird.soft.cpio.xz || 
+initrd ${server_magos_sibsau}${base_url}/multi/MagOS/${arch}/uird.magos.cpio.xz || 
+
+chain ${server_magos_sibsau}${base_url}/multi/MagOS/${arch}/vmlinuz ${magos_params} ||
+goto start
+
+:mageia4.1_kde
+set iso http://mirror.yandex.ru/mageia/iso/4.1/Mageia-4.1-LiveDVD-KDE-${arch}-DVD/Mageia-4.1-LiveDVD-KDE-${arch}-DVD.iso
+echo -n Params: && read params
+set magos_params ${params} uird.from=${server_magos_sibsau}${base_url}/multi/MagOS/base/${arch}/;${iso};${server_magos_sibsau}${base_url}/multi/MagOS/optional/90/ uird.load=* uird.noload=/${arch}/ uird.ro=*.xzm,*/live,*.sqfs root=uird: rw vga=788 lang=ru_RU plymouth.enable=0
+
+initrd ${server_magos_sibsau}${base_url}/multi/MagOS/${arch}/uird.soft.cpio.xz || 
+initrd ${server_magos_sibsau}${base_url}/multi/MagOS/${arch}/uird.magos.cpio.xz || 
+
+chain ${server_magos_sibsau}${base_url}/multi/MagOS/${arch}/vmlinuz ${magos_params} ||
+goto start
+
+:mageia5_kde
+set iso http://mirror.yandex.ru/mageia/iso/cauldron/Mageia-5-beta1-LiveDVD-KDE4-${arch}-DVD/Mageia-5-beta1-LiveDVD-KDE4-${arch}-DVD.iso
+echo -n Params: && read params
+set magos_params ${params} uird.from=${server_magos_sibsau}${base_url}/multi/MagOS/base/${arch}/;${iso};${server_magos_sibsau}${base_url}/multi/MagOS/optional/90/ uird.load=* uird.noload=/${arch}/ uird.ro=*.xzm,*/live,*.sqfs root=uird: rw vga=788 lang=ru_RU plymouth.enable=0
+
+initrd ${server_magos_sibsau}${base_url}/multi/MagOS/${arch}/uird.soft.cpio.xz || 
+initrd ${server_magos_sibsau}${base_url}/multi/MagOS/${arch}/uird.magos.cpio.xz || 
+
+chain ${server_magos_sibsau}${base_url}/multi/MagOS/${arch}/vmlinuz ${magos_params} ||
+goto start
+
+:mageia5_gnome
+set iso http://mirror.yandex.ru/mageia/iso/cauldron/Mageia-5-beta1-LiveDVD-GNOME-${arch}-DVD/Mageia-5-beta1-LiveDVD-GNOME-${arch}-DVD.iso
+echo -n Params: && read params
+set magos_params ${params} uird.from=${server_magos_sibsau}${base_url}/multi/MagOS/base/${arch}/;${iso};${server_magos_sibsau}${base_url}/multi/MagOS/optional/90/ uird.load=* uird.noload=/${arch}/ uird.ro=*.xzm,*/live,*.sqfs root=uird: rw vga=788 lang=ru_RU plymouth.enable=0
+
+initrd ${server_magos_sibsau}${base_url}/multi/MagOS/${arch}/uird.soft.cpio.xz || 
+initrd ${server_magos_sibsau}${base_url}/multi/MagOS/${arch}/uird.magos.cpio.xz || 
+
+chain ${server_magos_sibsau}${base_url}/multi/MagOS/${arch}/vmlinuz ${magos_params} ||
+goto start
+
 
 :ubuntu
 set iso http://linux.nsu.ru/ubuntu-releases/14.04.1/ubuntu-14.04.1-desktop-${archu}.iso
