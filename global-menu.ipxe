@@ -90,7 +90,7 @@ set rosa_mods http://magos.sibsau.ru/repository/netlive/multi/MagOS/optional/ros
 set iso http://mirror.yandex.ru/rosa/rosa2014.1/iso/ROSA.Fresh.R5/ROSA.FRESH.KDE.R5.x86_64.iso
 
 echo -n Params: && read params
-set magos_params ${params} ${magos_params_1};${iso};/memory/layer-base/1/LiveOS/squashfs.img;${magos_params_2}
+set magos_params ${params} ${magos_params_1};${iso};/mnt/../memory/layer-base/1/LiveOS/squashfs.img;${magos_params_2}
 
 initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.soft.cpio.xz || 
 initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.magos.cpio.xz || 
