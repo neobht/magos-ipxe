@@ -37,6 +37,7 @@ exit
 
 :menu_rosa
 menu MagOS_Rosa NetLive Menu
+item rosa_kde_sibsau      MagOS_Rosa KDE from http://magos.sibsau.ru
 item rosa_kde             MagOS_Rosa KDE
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
 goto ${selected}
@@ -72,7 +73,7 @@ choose --timeout ${menu-timeout} --default ${menu-default} selected || goto canc
 goto ${selected}
 
 ################################
-:rosa_kde
+:rosa_kde_sibsau
 set rosa_mods http://magos.sibsau.ru/repository/netlive/multi/MagOS/optional/rosa/
 
 echo -n Params: && read params
@@ -82,6 +83,19 @@ initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${archr}/uird.soft.c
 initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${archr}/uird.magos.cpio.xz || 
 
 chain ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${archr}/vmlinuz ${magos_params} ||
+goto start
+
+:rosa_kde
+set rosa_mods http://magos.sibsau.ru/repository/netlive/multi/MagOS/optional/rosa/
+set iso http://mirror.yandex.ru/rosa/rosa2014.1/iso/ROSA.Fresh.R5/ROSA.FRESH.KDE.R5.x86_64.iso
+
+echo -n Params: && read params
+set magos_params ${params} ${magos_params_1};${iso};${magos_params_2}
+
+initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.soft.cpio.xz || 
+initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.magos.cpio.xz || 
+
+chain ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/vmlinuz ${magos_params} ||
 goto start
 
 :alt_load
