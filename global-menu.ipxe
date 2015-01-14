@@ -11,6 +11,7 @@ set base_url /repository/netlive
 
 # Figure out if client is 64-bit capable
 cpuid --ext 29 && set arch x86_64 || set arch i586
+cpuid --ext 29 && set archr i586 || set archr i586
 cpuid --ext 29 && set archu amd64 || set archu i386
 
 
@@ -18,7 +19,8 @@ cpuid --ext 29 && set archu amd64 || set archu i386
  
 :start
 menu
-item --gap --             ------------------------- Operating systems ------------------------------
+item --gap --             ------------------------------------ Operating systems ------------------------------------
+item --key r menu_rosa     Boot MagOS_Rosa ${archr} from Internet
 item --key a menu_alt      Boot MagOS_AltLinux ${arch} from Internet
 item --key m menu_mageia   Boot MagOS_Mageia Linux ${arch} from Internet
 item --key u menu_ubuntu   Boot MagOS_Ubuntu Linux ${archu} from Internet
@@ -30,6 +32,12 @@ goto ${selected}
 
 :cancel
 exit
+
+:menu_rosa
+menu MagOS_Rosa NetLive Menu
+item rosa_kde             MagOS_Rosa KDE
+choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
+goto ${selected}
  
 :menu_alt
 menu MagOS_AltLinux NetLive Menu
@@ -60,6 +68,18 @@ menu MagOS_Ubuntu NetLive Menu
 item ubuntu               MagOS_Ubuntu Desktop 14.04.1
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
 goto ${selected}
+
+################################
+:rosa_kde
+set rosa_mods http://magos.sibsau.ru/repository/netlive/multi/MagOS/optional/40/rosa/
+echo -n Params: && read params
+set magos_params ${params} uird.from=${server_magos_sibsau}${base_url}/multi/MagOS/base/${archr}/;${rosa_mods};${server_magos_sibsau}${base_url}/multi/MagOS/optional/90/ uird.load=* uird.noload=/${archr}/ uird.ro=*.xzm,*/live,*.sqfs root=uird: rw vga=788 lang=ru_RU plymouth.enable=0
+
+initrd ${server_magos_sibsau}${base_url}/multi/MagOS/${archr}/uird.soft.cpio.xz || 
+initrd ${server_magos_sibsau}${base_url}/multi/MagOS/${archr}/uird.magos.cpio.xz || 
+
+chain ${server_magos_sibsau}${base_url}/multi/MagOS/${archr}/vmlinuz ${magos_params} ||
+goto start
 
 
 :alt_icewm
