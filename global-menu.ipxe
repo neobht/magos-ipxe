@@ -74,13 +74,15 @@ goto ${selected}
 ################################
 :rosa_kde
 set rosa_mods http://magos.sibsau.ru/repository/netlive/multi/MagOS/optional/rosa/
+set arch i586
+
 echo -n Params: && read params
 set magos_params ${params} $magos_params_1;${rosa_mods};$magos_params_2
 
-initrd ${server_magos_sibsau}${base_url}/multi/MagOS/${archr}/uird.soft.cpio.xz || 
-initrd ${server_magos_sibsau}${base_url}/multi/MagOS/${archr}/uird.magos.cpio.xz || 
+initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${archr}/uird.soft.cpio.xz || 
+initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${archr}/uird.magos.cpio.xz || 
 
-chain ${server_magos_sibsau}${base_url}/multi/MagOS/${archr}/vmlinuz ${magos_params} ||
+chain ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${archr}/vmlinuz ${magos_params} ||
 goto start
 
 :alt_load
