@@ -87,10 +87,10 @@ goto start
 echo -n Params: && read params
 set magos_params ${params} ${magos_params_1};${iso};${magos_params_2}
 
-initrd ${server_magos_sibsau}${base_url}/multi/MagOS/${arch}/uird.soft.cpio.xz || 
-initrd ${server_magos_sibsau}${base_url}/multi/MagOS/${arch}/uird.magos.cpio.xz || 
+initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.soft.cpio.xz || 
+initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.magos.cpio.xz || 
 
-chain ${server_magos_sibsau}${base_url}/multi/MagOS/${arch}/vmlinuz ${magos_params} ||
+chain ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/vmlinuz ${magos_params} ||
 goto start
 
 
