@@ -63,6 +63,7 @@ item mageia4_1_kde            MagOS_Mageia 4.1 KDE
 item mageia4_1_gnome          MagOS_Mageia 4.1 Gnome
 item mageia5_kde              MagOS_Mageia 5beta1 KDE
 item mageia5_gnome            MagOS_Mageia 5beta1 Gnome
+item edumagic                 MagOS_EduMagic
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
 goto ${selected}
 
@@ -164,6 +165,10 @@ goto alt_load
 
 :mageia5_gnome
 set iso http://mirror.yandex.ru/mageia/iso/cauldron/Mageia-5-beta1-LiveDVD-GNOME-${arch}-DVD/Mageia-5-beta1-LiveDVD-GNOME-${arch}-DVD.iso
+goto alt_load
+
+:edumagic
+set http://linux.mageia.tk/files/testing/15.01.15/EduMagic-ru.iso
 goto alt_load
 
 :ubuntu
