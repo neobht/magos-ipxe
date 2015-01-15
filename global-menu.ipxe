@@ -63,7 +63,7 @@ item mageia4_1_kde            MagOS_Mageia 4.1 KDE
 item mageia4_1_gnome          MagOS_Mageia 4.1 Gnome
 item mageia5_kde              MagOS_Mageia 5beta1 KDE
 item mageia5_gnome            MagOS_Mageia 5beta1 Gnome
-item edumagic                 MagOS_EduMagic
+
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
 goto ${selected}
 
