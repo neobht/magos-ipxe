@@ -59,8 +59,8 @@ goto ${selected}
 
 :menu_mageia
 menu MagOS_Mageia NetLive Menu
-item mageia4.1_kde            MagOS_Mageia 4.1 KDE
-item mageia4.1_gnome          MagOS_Mageia 4.1 Gnome
+item mageia4_1_kde            MagOS_Mageia 4.1 KDE
+item mageia4_1_gnome          MagOS_Mageia 4.1 Gnome
 item mageia5_kde              MagOS_Mageia 5beta1 KDE
 item mageia5_gnome            MagOS_Mageia 5beta1 Gnome
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
@@ -150,11 +150,11 @@ set iso http://mirror.yandex.ru/altlinux/p7/images/centaurus/altlinux-7.0.4-cent
 goto alt_load
 
 
-:mageia4.1_gnome
+:mageia4_1_gnome
 set iso http://mirror.yandex.ru/mageia/iso/4.1/Mageia-4.1-LiveDVD-GNOME-${arch}-DVD/Mageia-4.1-LiveDVD-GNOME-${arch}-DVD.iso
 goto alt_load
 
-:mageia4.1_kde
+:mageia4_1_kde
 set iso http://mirror.yandex.ru/mageia/iso/4.1/Mageia-4.1-LiveDVD-KDE4-${arch}-DVD/Mageia-4.1-LiveDVD-KDE4-${arch}-DVD.iso
 goto alt_load
 
