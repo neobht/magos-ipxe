@@ -169,7 +169,7 @@ goto alt_load
 
 :edumagic
 set iso http://linux.mageia.tk/files/testing/15.01.15/EduMagic-ru.iso
-set arch i586
+#set arch i586
 goto alt_load
 
 :ubuntu
