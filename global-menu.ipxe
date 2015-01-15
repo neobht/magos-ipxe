@@ -155,7 +155,7 @@ set iso http://mirror.yandex.ru/mageia/iso/4.1/Mageia-4.1-LiveDVD-GNOME-${arch}-
 goto alt_load
 
 :mageia4.1_kde
-set iso http://mirror.yandex.ru/mageia/iso/4.1/Mageia-4.1-LiveDVD-KDE-${arch}-DVD/Mageia-4.1-LiveDVD-KDE-${arch}-DVD.iso
+set iso http://mirror.yandex.ru/mageia/iso/4.1/Mageia-4.1-LiveDVD-KDE4-${arch}-DVD/Mageia-4.1-LiveDVD-KDE4-${arch}-DVD.iso
 goto alt_load
 
 :mageia5_kde
