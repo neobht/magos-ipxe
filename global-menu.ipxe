@@ -168,7 +168,8 @@ set iso http://mirror.yandex.ru/mageia/iso/cauldron/Mageia-5-beta1-LiveDVD-GNOME
 goto alt_load
 
 :edumagic
-set http://linux.mageia.tk/files/testing/15.01.15/EduMagic-ru.iso
+set iso http://linux.mageia.tk/files/testing/15.01.15/EduMagic-ru.iso
+set arch i586
 goto alt_load
 
 :ubuntu
