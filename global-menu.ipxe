@@ -63,6 +63,7 @@ item mageia4_1_kde            MagOS_Mageia 4.1 KDE
 item mageia4_1_gnome          MagOS_Mageia 4.1 Gnome
 item mageia5_kde              MagOS_Mageia 5beta1 KDE
 item mageia5_gnome            MagOS_Mageia 5beta1 Gnome
+item edumagic                 MagOS_Mageia + Edumagic
 
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
 goto ${selected}
@@ -168,9 +169,18 @@ set iso http://mirror.yandex.ru/mageia/iso/cauldron/Mageia-5-beta1-LiveDVD-GNOME
 goto alt_load
 
 :edumagic
-set iso http://linux.mageia.tk/files/testing/15.01.15/EduMagic-ru.iso
-#set arch i586
-goto alt_load
+set isoe http://linux.mageia.tk/files/testing/15.01.15/EduMagic-ru.iso
+set arch i586
+set iso http://mirror.yandex.ru/mageia/iso/cauldron/Mageia-5-beta1-LiveDVD-KDE4-${arch}-DVD/Mageia-5-beta1-LiveDVD-KDE4-${arch}-DVD.iso
+echo -n Params: && read params
+set magos_params ${params} ${magos_params_1};${iso};${isoe};${magos_params_2}
+
+initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.soft.cpio.xz || 
+initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.magos.cpio.xz || 
+
+chain ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/vmlinuz ${magos_params} ||
+goto start
+
 
 :ubuntu
 set iso http://linux.nsu.ru/ubuntu-releases/14.04.1/ubuntu-14.04.1-desktop-${archu}.iso
