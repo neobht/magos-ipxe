@@ -26,6 +26,7 @@ item --key r menu_rosa     Boot MagOS_Rosa ${archr} from Internet
 item --key a menu_alt      Boot MagOS_AltLinux ${arch} from Internet
 item --key m menu_mageia   Boot MagOS_Mageia Linux ${arch} from Internet
 item --key u menu_ubuntu   Boot MagOS_Ubuntu Linux ${archu} from Internet
+item --key p menu_pra      Boot MagOS_PRA Linux from Internet
 item
 item --key x exit         Exit iPXE and continue BIOS boot
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
@@ -99,7 +100,22 @@ initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.magos.c
 
 chain ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/vmlinuz ${magos_params} ||
 goto start
+#############################
+:menu_pra
+set iso http://www.puppyrus.org/~melvik/puppyrus/ftp/puppyrus/puppyrus-a/pra03/iso/1501/pra03-1501.iso
+set arch i586
+set magos_params_1 uird.from=${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/
+set magos_params_2 ${server_magos_sibsau}${base_url}/multi/MagOS/modules/${arch}/ uird.load=* uird.noload=/optional/ uird.ro=*.xzm,*.pfs,*/live,*.sqfs,*/ext3fs.img root=uird: rw vga=788 lang=ru_RU plymouth.enable=0
+echo -n Params: && read params
+set magos_params ${params} ${magos_params_1};${iso};${magos_params_2}
 
+#initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.soft.cpio.xz || 
+initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.magos.cpio.xz || 
+
+chain ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/vmlinuz ${magos_params} ||
+goto start
+
+################################
 :alt_load
 echo -n Params: && read params
 set magos_params ${params} ${magos_params_1};${iso};${magos_params_2}
