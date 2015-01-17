@@ -90,10 +90,10 @@ goto start
 
 :rosa_kde
 #set rosa_mods http://magos.sibsau.ru/repository/netlive/multi/MagOS/optional/rosa/
-#set iso http://mirror.yandex.ru/rosa/rosa2014.1/iso/ROSA.Fresh.R5/ROSA.FRESH.KDE.R5.x86_64.iso
-set iso http://www.puppyrus.org/~melvik/puppyrus/ftp/puppyrus/puppyrus-a/pra03/iso/1501/pra03-1501.iso
+set iso http://mirror.yandex.ru/rosa/rosa2014.1/iso/ROSA.Fresh.R5/ROSA.FRESH.KDE.R5.x86_64.iso
+#set iso http://www.puppyrus.org/~melvik/puppyrus/ftp/puppyrus/puppyrus-a/pra03/iso/1501/pra03-1501.iso
 echo -n Params: && read params
-set magos_params ${params} ${magos_params_1};${iso};${iso}${magos_params_2}
+set magos_params ${params} ${magos_params_1};${iso};${magos_params_2}
 
 #initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.soft.cpio.xz || 
 initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.magos.cpio.xz || 
