@@ -88,24 +88,25 @@ chain ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${archr}/vmlinuz ${ma
 goto start
 
 :rosa_kde
-#set rosa_mods http://magos.sibsau.ru/repository/netlive/multi/MagOS/optional/rosa/
-set iso http://mirror.yandex.ru/rosa/rosa2014.1/iso/ROSA.Fresh.R5/ROSA.FRESH.KDE.R5.x86_64.iso
+set rosa_mods http://magos.sibsau.ru/repository/netlive/multi/MagOS/optional/rosa/
+#set iso http://mirror.yandex.ru/rosa/rosa2014.1/iso/ROSA.Fresh.R5/ROSA.FRESH.KDE.R5.x86_64.iso
 #set iso http://www.puppyrus.org/~melvik/puppyrus/ftp/puppyrus/puppyrus-a/pra03/iso/1501/pra03-1501.iso
 echo -n Params: && read params
-set magos_params ${params} ${magos_params_1};${iso};${magos_params_2}
+set magos_params ${params} ${magos_params_1};${rosa_mods};${magos_params_2}
 
-#initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.soft.cpio.xz || 
+initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.soft.cpio.xz || 
 initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.magos.cpio.xz || 
 
 chain ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/vmlinuz ${magos_params} ||
 goto start
+
 #############################
 :menu_pra
 set iso http://www.puppyrus.org/~melvik/puppyrus/ftp/puppyrus/puppyrus-a/pra03/iso/1501/pra03-1501.iso
 set arch i586
 set magos_params_1 uird.from=${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/
 set magos_params_2 ${server_magos_sibsau}${base_url}/multi/MagOS/modules/${arch}/ 
-set magos_params_3 uird.load=* uird.noload=/optional/ uird.ro=*.xzm,*.pfs,*/live,*.sqfs,*/ext3fs.img root=uird: rw vga=788 lang=ru_RU plymouth.enable=0
+set magos_params_3 uird.load=* uird.noload=/optional/ uird.ro=*.xzm,*.pfs,*/live,*.sqfs root=uird: rw vga=788 lang=ru_RU plymouth.enable=0
 echo -n Params: && read params
 set magos_params ${params} ${magos_params_1};${iso} ${magos_params_3}
 
