@@ -1,7 +1,5 @@
 #!ipxe
 
-dhcp
-read ppp
 # Some menu defaults
 set menu-timeout 5000
 set submenu-timeout ${menu-timeout}
@@ -17,7 +15,7 @@ cpuid --ext 29 && set archr i586 || set archr i586
 cpuid --ext 29 && set archu amd64 || set archu i386
 
 set magos_params_1 uird.from=${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/
-set magos_params_2 ${server_magos_sibsau}${base_url}/multi/MagOS/modules/${arch}/ uird.load=* uird.noload="" uird.ro=*.xzm,*.pfs,*/live,*.sqfs root=uird: rw vga=788 lang=ru_RU plymouth.enable=0
+set magos_params_2 ${server_magos_sibsau}${base_url}/multi/MagOS/modules/${arch}/ uird.load=* uird.noload="" uird.ro=*.xzm,*.pfs,*/live,*.sqfs,*.squashfs root=uird: rw vga=788 lang=ru_RU plymouth.enable=0
 
 ###################### MAIN MENU ####################################
  
@@ -27,7 +25,7 @@ item --gap --             ------------------------------------ Operating systems
 item --key r menu_rosa     Boot MagOS_Rosa ${archr} from Internet
 item --key a menu_alt      Boot MagOS_AltLinux ${arch} from Internet
 item --key m menu_mageia   Boot MagOS_Mageia Linux ${arch} from Internet
-#item --key u menu_ubuntu   Boot MagOS_Ubuntu Linux ${archu} from Internet
+item --key u menu_ubuntu   Boot MagOS_Ubuntu Linux ${archu} from Internet
 item --key p menu_pra      Boot MagOS_PRA Linux from Internet
 item
 item --key x exit         Exit iPXE and continue BIOS boot
@@ -95,6 +93,17 @@ set rosa_mods http://magos.sibsau.ru/repository/netlive/multi/MagOS/optional/ros
 #set iso http://www.puppyrus.org/~melvik/puppyrus/ftp/puppyrus/puppyrus-a/pra03/iso/1501/pra03-1501.iso
 echo -n Params: && read params
 set magos_params ${params} ${magos_params_1};${rosa_mods};${magos_params_2}
+
+initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.soft.cpio.xz || 
+initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.magos.cpio.xz || 
+
+chain ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/vmlinuz ${magos_params} ||
+goto start
+
+:menu_pra
+set iso http://www.puppyrus.org/~melvik/puppyrus/ftp/puppyrus/puppyrus-a/pra03/iso/1501/pra03-1501.iso
+echo -n Params: && read params
+set magos_params ${params} ${magos_params_1};${iso};${magos_params_2}
 
 initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.soft.cpio.xz || 
 initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.magos.cpio.xz || 
