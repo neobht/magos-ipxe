@@ -174,11 +174,11 @@ set iso http://mirror.yandex.ru/mageia/iso/4.1/Mageia-4.1-LiveDVD-KDE4-${arch}-D
 goto alt_load
 
 :mageia5_kde
-set iso http://mirror.yandex.ru/mageia/iso/cauldron/Mageia-5-beta1-LiveDVD-KDE4-${arch}-DVD/Mageia-5-beta1-LiveDVD-KDE4-${arch}-DVD.iso
+set iso http://mirror.yandex.ru/mageia/iso/cauldron/Mageia-5-beta2-LiveDVD-KDE4-${arch}-DVD/Mageia-5-beta2-LiveDVD-KDE4-${arch}-DVD.iso
 goto alt_load
 
 :mageia5_gnome
-set iso http://mirror.yandex.ru/mageia/iso/cauldron/Mageia-5-beta1-LiveDVD-GNOME-${arch}-DVD/Mageia-5-beta1-LiveDVD-GNOME-${arch}-DVD.iso
+set iso http://mirror.yandex.ru/mageia/iso/cauldron/Mageia-5-beta2-LiveDVD-GNOME-${arch}-DVD/Mageia-5-beta2-LiveDVD-GNOME-${arch}-DVD.iso
 goto alt_load
 
 :edumagic
