@@ -14,9 +14,9 @@ cpuid --ext 29 && set arch x86_64 || set arch i586
 cpuid --ext 29 && set archr i586 || set archr i586
 cpuid --ext 29 && set archu amd64 || set archu i386
 
-set magos_params_1 uird.from=${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/
-set magos_params_1_nonFHS uird.from=${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}_nonFHS/
+set magos_params_1 uird.from=
 set magos_params_2 ${server_magos_sibsau}${base_url}/multi/MagOS/modules/${arch}/ 
+set magos_params_2_nonFHS ${server_magos_sibsau}${base_url}/multi/MagOS/modules/${arch}_nonFHS/ 
 set magos_params_3 uird.load=* uird.noload="" uird.ro=*.xzm,*.pfs,*/live,*.sqfs,*.squashfs root=uird: rw vga=788 lang=ru_RU plymouth.enable=0
 
 ###################### MAIN MENU ####################################
@@ -77,6 +77,17 @@ choose --timeout ${menu-timeout} --default ${menu-default} selected || goto canc
 goto ${selected}
 
 ################################
+:load
+echo -n Params: && read params
+set magos_params ${params} ${magos_params_1}${iso};${magos_params_2} ${magos_params_3}
+
+initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.soft.cpio.xz || 
+initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.magos.cpio.xz || 
+
+chain ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/vmlinuz ${magos_params} ||
+goto start
+
+################################
 :rosa_kde_sibsau
 set rosa_mods http://magos.sibsau.ru/repository/netlive/multi/MagOS/optional/rosa/
 
@@ -114,96 +125,74 @@ chain ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/vmlinuz ${mag
 goto start
 
 
-################################
-:alt_load
-echo -n Params: && read params
-set magos_params ${params} ${magos_params_1};${iso};${magos_params_2} ${magos_params_3}
-
-initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.soft.cpio.xz || 
-initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.magos.cpio.xz || 
-
-chain ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/vmlinuz ${magos_params} ||
-goto start
 
 
 :alt_icewm
 set iso http://nightly.altlinux.org/p7/release/altlinux-p7-icewm-20141212-${arch}.iso
-goto alt_load
+goto load
 
 :alt_lxde
 set iso http://nightly.altlinux.org/p7/release/altlinux-p7-lxde-20141212-${arch}.iso
-goto alt_load
+goto load
 
 :alt_mate
 set iso http://nightly.altlinux.org/p7/release/altlinux-p7-mate-20141212-${arch}.iso
-goto alt_load
+goto load
 
 :alt_gnome3
 set iso http://mirror.yandex.ru/altlinux/p7/images/starterkits/altlinux-p7-gnome3-20141212-${arch}.iso
-goto alt_load
+goto load
 
 :alt_kde4
 set iso http://mirror.yandex.ru/altlinux/p7/images/starterkits/altlinux-p7-kde4-20141212-${arch}.iso
-goto alt_load
+goto load
 
 :alt_xfce
 set iso http://mirror.yandex.ru/altlinux/p7/images/starterkits/altlinux-p7-xfce-20141212-${arch}.iso
-goto alt_load
+goto load
 
 :alt_tde
 set iso http://mirror.yandex.ru/altlinux/p7/images/starterkits/altlinux-p7-tde-20141212-${arch}.iso
-goto alt_load
+goto load
 
 :alt_school
 set iso http://mirror.yandex.ru/altlinux/p7/images/school/altlinux-7.0.4-school-master-${arch}-ru-install-dvd5.iso
-goto alt_load
+goto load
 
 :alt_simply
 set iso http://mirror.yandex.ru/altlinux/p7/images/simply/altlinux-7.0.4-simply-${arch}-live-dvd5.iso 
-goto alt_load
+goto load
 
 :alt_centaurus
 set iso http://mirror.yandex.ru/altlinux/p7/images/centaurus/altlinux-7.0.4-centaurus-${arch}-ru-live-cd.iso
-goto alt_load
+goto load
 
 
 :mageia4_1_gnome
 set iso http://mirror.yandex.ru/mageia/iso/4.1/Mageia-4.1-LiveDVD-GNOME-${arch}-DVD/Mageia-4.1-LiveDVD-GNOME-${arch}-DVD.iso
-goto alt_load
+set magos_params_2 ${magos_params_2}_nonFHS
+goto load
 
 :mageia4_1_kde
 set iso http://mirror.yandex.ru/mageia/iso/4.1/Mageia-4.1-LiveDVD-KDE4-${arch}-DVD/Mageia-4.1-LiveDVD-KDE4-${arch}-DVD.iso
-goto alt_load
+set magos_params_2 ${magos_params_2}_nonFHS
+goto load
 
 :mageia5_kde
 set iso http://mirror.yandex.ru/mageia/iso/cauldron/Mageia-5-beta2-LiveDVD-KDE4-${arch}-DVD/Mageia-5-beta2-LiveDVD-KDE4-${arch}-DVD.iso
-echo -n Params: && read params
-set magos_params ${params} ${magos_params_1_nonFHS};${iso} ${magos_params_3}
-#;${magos_params_2}
-
-initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.soft.cpio.xz || 
-initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.magos.cpio.xz || 
-
-chain ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/vmlinuz ${magos_params} ||
-goto start
-
-goto alt_load
+set magos_params_2 ${magos_params_2}_nonFHS
+goto load
 
 :mageia5_gnome
 set iso http://mirror.yandex.ru/mageia/iso/cauldron/Mageia-5-beta2-LiveDVD-GNOME-${arch}-DVD/Mageia-5-beta2-LiveDVD-GNOME-${arch}-DVD.iso
-goto alt_load
+set magos_params_2 ${magos_params_2}_nonFHS
+goto load
 
 :edumagic
-set isoe http://linux.mageia.tk/files/testing/15.01.15/EduMagic-ru.iso
+set iso http://linux.mageia.tk/files/testing/15.01.15/EduMagic-ru.iso
 set arch i586
-echo -n Params: && read params
-set magos_params ${params} ${magos_params_1_nonFHS};${iso};${isoe};${magos_params_2} ${magos_params_3}
-
-initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.soft.cpio.xz || 
-initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.magos.cpio.xz || 
-
-chain ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/vmlinuz ${magos_params} ||
-goto start
+set magos_params_2 ${magos_params_2}_nonFHS
+goto load
 
 
 :ubuntu
