@@ -16,7 +16,8 @@ cpuid --ext 29 && set archu amd64 || set archu i386
 
 set magos_params_1 uird.from=${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/
 set magos_params_1_nonFHS uird.from=${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}_nonFHS/
-set magos_params_2 ${server_magos_sibsau}${base_url}/multi/MagOS/modules/${arch}/ uird.load=* uird.noload="" uird.ro=*.xzm,*.pfs,*/live,*.sqfs,*.squashfs root=uird: rw vga=788 lang=ru_RU plymouth.enable=0
+set magos_params_2 ${server_magos_sibsau}${base_url}/multi/MagOS/modules/${arch}/ 
+set magos_params_3 uird.load=* uird.noload="" uird.ro=*.xzm,*.pfs,*/live,*.sqfs,*.squashfs root=uird: rw vga=788 lang=ru_RU plymouth.enable=0
 
 ###################### MAIN MENU ####################################
  
@@ -80,7 +81,7 @@ goto ${selected}
 set rosa_mods http://magos.sibsau.ru/repository/netlive/multi/MagOS/optional/rosa/
 
 echo -n Params: && read params
-set magos_params ${params} ${magos_params_1};${rosa_mods};${magos_params_2}
+set magos_params ${params} ${magos_params_1};${rosa_mods};${magos_params_2} ${magos_params_3}
 
 initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${archr}/uird.soft.cpio.xz || 
 initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${archr}/uird.magos.cpio.xz || 
@@ -104,7 +105,7 @@ goto start
 :menu_pra
 set iso http://www.puppyrus.org/~melvik/puppyrus/ftp/puppyrus/puppyrus-a/pra03/iso/1501/pra03-1501.iso
 echo -n Params: && read params
-set magos_params ${params} ${magos_params_1};${iso};${magos_params_2}
+set magos_params ${params} ${magos_params_1_nonFHS};${iso} ${magos_params_3}
 
 initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.soft.cpio.xz || 
 initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.magos.cpio.xz || 
@@ -116,7 +117,7 @@ goto start
 ################################
 :alt_load
 echo -n Params: && read params
-set magos_params ${params} ${magos_params_1};${iso};${magos_params_2}
+set magos_params ${params} ${magos_params_1};${iso};${magos_params_2} ${magos_params_3}
 
 initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.soft.cpio.xz || 
 initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.magos.cpio.xz || 
@@ -177,7 +178,7 @@ goto alt_load
 :mageia5_kde
 set iso http://mirror.yandex.ru/mageia/iso/cauldron/Mageia-5-beta2-LiveDVD-KDE4-${arch}-DVD/Mageia-5-beta2-LiveDVD-KDE4-${arch}-DVD.iso
 echo -n Params: && read params
-set magos_params ${params} ${magos_params_1_nonFHS};${iso}
+set magos_params ${params} ${magos_params_1_nonFHS};${iso} ${magos_params_3}
 #;${magos_params_2}
 
 initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.soft.cpio.xz || 
@@ -195,9 +196,8 @@ goto alt_load
 :edumagic
 set isoe http://linux.mageia.tk/files/testing/15.01.15/EduMagic-ru.iso
 set arch i586
-set iso http://mirror.yandex.ru/mageia/iso/cauldron/Mageia-5-beta1-LiveDVD-KDE4-${arch}-DVD/Mageia-5-beta1-LiveDVD-KDE4-${arch}-DVD.iso
 echo -n Params: && read params
-set magos_params ${params} ${magos_params_1};${iso};${isoe};${magos_params_2}
+set magos_params ${params} ${magos_params_1_nonFHS};${iso};${isoe};${magos_params_2} ${magos_params_3}
 
 initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.soft.cpio.xz || 
 initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.magos.cpio.xz || 
