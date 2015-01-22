@@ -15,6 +15,7 @@ cpuid --ext 29 && set archr i586 || set archr i586
 cpuid --ext 29 && set archu amd64 || set archu i386
 
 set magos_params_1 uird.from=${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/
+set magos_params_1_nonFHS uird.from=${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}_nonFHS/
 set magos_params_2 ${server_magos_sibsau}${base_url}/multi/MagOS/modules/${arch}/ uird.load=* uird.noload="" uird.ro=*.xzm,*.pfs,*/live,*.sqfs,*.squashfs root=uird: rw vga=788 lang=ru_RU plymouth.enable=0
 
 ###################### MAIN MENU ####################################
@@ -62,8 +63,8 @@ goto ${selected}
 menu MagOS_Mageia NetLive Menu
 item mageia4_1_kde            MagOS_Mageia 4.1 KDE
 item mageia4_1_gnome          MagOS_Mageia 4.1 Gnome
-item mageia5_kde              MagOS_Mageia 5beta1 KDE
-item mageia5_gnome            MagOS_Mageia 5beta1 Gnome
+item mageia5_kde              MagOS_Mageia 5beta2 KDE
+item mageia5_gnome            MagOS_Mageia 5beta2 Gnome
 
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
 goto ${selected}
@@ -175,6 +176,15 @@ goto alt_load
 
 :mageia5_kde
 set iso http://mirror.yandex.ru/mageia/iso/cauldron/Mageia-5-beta2-LiveDVD-KDE4-${arch}-DVD/Mageia-5-beta2-LiveDVD-KDE4-${arch}-DVD.iso
+echo -n Params: && read params
+set magos_params ${params} ${magos_params_1_nonFHS};${iso};${magos_params_2}
+
+initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.soft.cpio.xz || 
+initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.magos.cpio.xz || 
+
+chain ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/vmlinuz ${magos_params} ||
+goto start
+
 goto alt_load
 
 :mageia5_gnome
