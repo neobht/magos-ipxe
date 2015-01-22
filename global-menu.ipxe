@@ -91,7 +91,7 @@ goto start
 set rosa_mods http://magos.sibsau.ru/repository/netlive/multi/MagOS/optional/rosa/
 
 echo -n Params: && read params
-set magos_params ${params} ${magos_params_1};${rosa_mods};${magos_params_2} ${magos_params_3}
+set magos_params ${params} ${magos_params_1};${rosa_mods};${magos_params_2}/ ${magos_params_3}
 
 initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${archr}/uird.soft.cpio.xz || 
 initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${archr}/uird.magos.cpio.xz || 
