@@ -177,7 +177,8 @@ goto alt_load
 :mageia5_kde
 set iso http://mirror.yandex.ru/mageia/iso/cauldron/Mageia-5-beta2-LiveDVD-KDE4-${arch}-DVD/Mageia-5-beta2-LiveDVD-KDE4-${arch}-DVD.iso
 echo -n Params: && read params
-set magos_params ${params} ${magos_params_1_nonFHS};${iso};${magos_params_2}
+set magos_params ${params} ${magos_params_1_nonFHS};${iso}
+#;${magos_params_2}
 
 initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.soft.cpio.xz || 
 initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.magos.cpio.xz || 
