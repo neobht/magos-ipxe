@@ -199,7 +199,7 @@ goto start
 set iso http://linux.nsu.ru/ubuntu-releases/14.04.1/ubuntu-14.04.1-desktop-${archu}.iso
 #set repo http://mirror.yandex.ru/ubuntu-cdimage/livecd-base/livecd-base/20150115/
 echo -n Params: && read params
-set magos_params ${params} uird.noload=uird.from=${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/;${iso};${server_magos_sibsau}${base_url}/multi/MagOS/modules/{arch} uird.load=* uird.noload="" uird.ro=*.xzm,*/live,*.sqfs,*.squashfs root=uird: rw vga=788 lang=ru_RU plymouth.enable=0
+set magos_params ${params} uird.from=${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/;${iso};${server_magos_sibsau}${base_url}/multi/MagOS/modules/{arch} uird.load=* uird.noload="" uird.ro=*.xzm,*/live,*.sqfs,*.squashfs root=uird: rw vga=788 lang=ru_RU plymouth.enable=0
 
 initrd ${server_magos_sibsau}${base_url}/multi/MagOS/${arch}/uird.soft.cpio.xz || 
 initrd ${server_magos_sibsau}${base_url}/multi/MagOS/${arch}/uird.magos.cpio.xz || 
