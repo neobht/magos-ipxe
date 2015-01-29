@@ -142,7 +142,7 @@ chain ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/vmlinuz ${mag
 goto start
 
 :pra
-set iso http://www.puppyrus.org/~melvik/puppyrus/ftp/puppyrus/puppyrus-a/pra03/iso/1501/pra03-1501a.iso
+set iso http://mirror.yandex.ru/puppyrus/puppyrus-a/pra03/iso/1501/pra03-1501a.iso
 set arch i586
 set magos_params_2 ${server_magos_sibsau}${base_url}/multi/MagOS/modules/${arch} 
 set magos_params_2 ${magos_params_2}_nonFHS
@@ -158,7 +158,7 @@ goto start
 
 
 :pra_game
-set iso http://www.puppyrus.org/~melvik/puppyrus/ftp/puppyrus/puppyrus-a/pra03/iso/1501/pra03-1501game.iso
+set iso http://mirror.yandex.ru/puppyrus/puppyrus-a/pra03/iso/1501/pra03-1501game.iso
 set arch i586
 set magos_params_2 ${server_magos_sibsau}${base_url}/multi/MagOS/modules/${arch} 
 set magos_params_2 ${magos_params_2}_nonFHS
