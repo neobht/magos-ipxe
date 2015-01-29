@@ -29,6 +29,7 @@ item --key a menu_alt      Boot MagOS_AltLinux ${arch} from Internet
 item --key g menu_mageia   Boot MagOS_Mageia Linux ${arch} from Internet
 item --key u menu_ubuntu   Boot MagOS_Ubuntu Linux ${archu} from Internet
 item --key p menu_pra      Boot MagOS_PRA Linux from Internet
+item  richy                Boot MagOS_Richy Linux from Internet
 item
 item --key x exit         Exit iPXE and continue BIOS boot
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
@@ -172,6 +173,20 @@ initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.magos.c
 chain ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/vmlinuz-3.14.17-pf4 ${magos_params} ||
 goto start
 
+:richy
+set iso http://magos.sibsau.ru/repository/netlive/multi/MagOS/iso/richy/richy-user-219.iso
+set arch i586
+set magos_params_2 ${server_magos_sibsau}${base_url}/multi/MagOS/modules/${arch} 
+set magos_params_2 ${magos_params_2}_nonFHS
+echo -n Params: && read params
+set magos_params ${params} ${magos_params_1}${iso};${magos_params_2}/ ${magos_params_3}
+
+initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.soft.cpio.xz || 
+initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.kernel.cpio.xz || 
+initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.magos.cpio.xz || 
+
+chain ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/vmlinuz-3.14.17-pf4 ${magos_params} ||
+goto start
 
 :alt_icewm
 set iso http://nightly.altlinux.org/p7/release/altlinux-p7-icewm-20141212-${arch}.iso
