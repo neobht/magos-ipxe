@@ -23,9 +23,10 @@ set magos_params_3 uird.load=* uird.noload="" uird.ro=*.xzm,*.pfs,*/live,*.sqfs,
 :start
 menu
 item --gap --             ------------------------------------ Operating systems ------------------------------------
+item --key m menu_magos    Boot MagOS Linux from Internet
 item --key r menu_rosa     Boot MagOS_Rosa ${archr} from Internet
 item --key a menu_alt      Boot MagOS_AltLinux ${arch} from Internet
-item --key m menu_mageia   Boot MagOS_Mageia Linux ${arch} from Internet
+item --key g menu_mageia   Boot MagOS_Mageia Linux ${arch} from Internet
 item --key u menu_ubuntu   Boot MagOS_Ubuntu Linux ${archu} from Internet
 item --key p menu_pra      Boot MagOS_PRA Linux from Internet
 item
@@ -36,6 +37,14 @@ goto ${selected}
 
 :cancel
 exit
+
+:menu_magos
+menu MagOS Linux NetLive Menu
+item magos_2014.64          MagOS Linux 2014.64 UIRD from http://magos.sibsau.ru
+item magos_2012             MagOS Linux 2012    from http://magos.sibsau.ru
+item magos_2012lts          MagOS Linux 2012lts from http://magos.sibsau.ru
+choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
+goto ${selected}
 
 :menu_rosa
 menu MagOS_Rosa NetLive Menu
@@ -87,6 +96,19 @@ chain ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/vmlinuz ${mag
 goto start
 
 ################################
+:magos_2014.64
+set magos_mods http://magos.sibsau.ru/repository/netlive/2014.64/
+set arch x86_64
+
+echo -n Params: && read params
+set magos_params ${params} ${magos_mods} ${magos_params_3}
+
+initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.soft.cpio.xz || 
+initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.magos.cpio.xz || 
+
+chain ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/vmlinuz ${magos_params} ||
+goto start
+#################################
 :rosa_kde_sibsau
 set rosa_mods http://magos.sibsau.ru/repository/netlive/multi/MagOS/optional/rosa/
 
