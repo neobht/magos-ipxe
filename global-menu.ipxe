@@ -30,6 +30,7 @@ item --key g menu_mageia   Boot MagOS_Mageia Linux ${arch} from Internet
 item --key u menu_ubuntu   Boot MagOS_Ubuntu Linux ${archu} from Internet
 item --key p menu_pra      Boot MagOS_PRA Linux from Internet
 item  richy                Boot MagOS_Richy Linux from Internet
+item  cld                  Boot MagOS_Calculate Linux from Internet
 item
 item --key x exit         Exit iPXE and continue BIOS boot
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
@@ -188,6 +189,10 @@ initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.magos.c
 
 chain ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/vmlinuz-3.14.17-pf4 ${magos_params} ||
 goto start
+
+:cld
+set iso http://mirror.yandex.ru/calculate/CLD/14.12.1/x86_64/cld-14.12.1-x86_64.iso
+goto load
 
 :alt_icewm
 set iso http://nightly.altlinux.org/p7/release/altlinux-p7-icewm-20141212-${arch}.iso
