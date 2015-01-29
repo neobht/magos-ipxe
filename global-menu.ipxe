@@ -97,7 +97,7 @@ goto start
 
 ################################
 :magos_2014.64
-set magos_mods http://magos.sibsau.ru/repository/netlive/2014.64/
+set magos_mods http://magos.sibsau.ru/repository/netlive/2014.64/MagOS/
 set arch x86_64
 
 echo -n Params: && read params
