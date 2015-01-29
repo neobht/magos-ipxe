@@ -150,9 +150,9 @@ echo -n Params: && read params
 set magos_params ${params} ${magos_params_1}${iso};${magos_params_2}/ ${magos_params_3}
 
 initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.soft.cpio.xz || 
-initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.magos.cpio.xz || 
+initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/m_uird.magos.cpio.xz || 
 
-chain ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/vmlinuz-3.14.17-pf4 ${magos_params} ||
+chain ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/m_vmlinuz ${magos_params} ||
 goto start
 
 
