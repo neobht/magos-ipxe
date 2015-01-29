@@ -97,11 +97,11 @@ goto start
 
 ################################
 :magos_2014.64
-set magos_mods http://magos.sibsau.ru/repository/netlive/2014.64/base/
+set magos_mods http://magos.sibsau.ru/repository/netlive/2014.64/
 set arch x86_64
 
 echo -n Params: && read params
-set magos_params ${params} ${magos_params_1}${magos_mods};${magos_params_2}/ ${magos_params_3}
+set magos_params ${params} uird.noload=/optional/ ${magos_params_1}${magos_mods};${magos_params_2}/ ${magos_params_3}
 
 initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.soft.cpio.xz || 
 initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.magos.cpio.xz || 
