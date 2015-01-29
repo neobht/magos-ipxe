@@ -144,7 +144,7 @@ goto start
 :pra
 set iso http://www.puppyrus.org/~melvik/puppyrus/ftp/puppyrus/puppyrus-a/pra03/iso/1501/pra03-1501a.iso
 set arch i586
-
+set magos_params_2 ${server_magos_sibsau}${base_url}/multi/MagOS/modules/${arch} 
 set magos_params_2 ${magos_params_2}_nonFHS
 echo -n Params: && read params
 set magos_params ${params} ${magos_params_1}${iso};${magos_params_2}/ ${magos_params_3}
