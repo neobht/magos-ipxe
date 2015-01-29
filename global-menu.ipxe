@@ -192,6 +192,7 @@ goto start
 
 :cld
 set iso http://mirror.yandex.ru/calculate/CLD/14.12.1/x86_64/cld-14.12.1-x86_64.iso
+set magos_params_2 ${magos_params_2}_nonFHS
 goto load
 
 :alt_icewm
