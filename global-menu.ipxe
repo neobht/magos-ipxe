@@ -160,9 +160,18 @@ goto start
 :pra_game
 set iso http://www.puppyrus.org/~melvik/puppyrus/ftp/puppyrus/puppyrus-a/pra03/iso/1501/pra03-1501game.iso
 set arch i586
-
+set magos_params_2 ${server_magos_sibsau}${base_url}/multi/MagOS/modules/${arch} 
 set magos_params_2 ${magos_params_2}_nonFHS
-goto load
+echo -n Params: && read params
+set magos_params ${params} ${magos_params_1}${iso};${magos_params_2}/ ${magos_params_3}
+
+initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.soft.cpio.xz || 
+initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.kernel.cpio.xz || 
+initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.magos.cpio.xz || 
+
+chain ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/vmlinuz-3.14.17-pf4 ${magos_params} ||
+goto start
+
 
 :alt_icewm
 set iso http://nightly.altlinux.org/p7/release/altlinux-p7-icewm-20141212-${arch}.iso
