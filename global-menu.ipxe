@@ -15,6 +15,7 @@ cpuid --ext 29 && set archr i586 || set archr i586
 cpuid --ext 29 && set archu amd64 || set archu i386
 cpuid --ext 29 && set archf x86_64 || set archf i686 
 
+
 set magos_params_1 uird.from=
 set magos_params_2 ${server_magos_sibsau}${base_url}/multi/MagOS/modules/${arch} 
 set magos_params_3 uird.load=* uird.ro=*.xzm,*.pfs,*/live,*.sqfs,*.squashfs,*.sfs,squashfs.img root=uird: rw vga=788 lang=ru_RU plymouth.enable=0 uird.config=MagOS_Full.ini
@@ -31,6 +32,7 @@ item --key g menu_mageia   Boot MagOS_Mageia Linux ${arch} from Internet
 item --key u menu_ubuntu   Boot MagOS_Ubuntu Linux ${archu} from Internet
 item --key p menu_pra      Boot MagOS_PRA Linux from Internet
 item --key f menu_fedora   Boot MagOS_Fedora Linux from Internet
+item --key z menu_mint     Boot MagOS_Mint Linux from Internet
 item  cld                  Boot MagOS_Calculate Linux from Internet
 item
 item --key x exit         Exit iPXE and continue BIOS boot
@@ -77,6 +79,13 @@ goto ${selected}
 menu MagOS_Fedora NetLive Menu
 item fedora_kde           MagOS_Fedora KDE
 item fedora_gnome         MagOS_Fedora Gnome
+choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
+goto ${selected}
+
+:menu_mint
+menu MagOS_Mint NetLive Menu
+item mint_cinnamon        MagOS_Mint Cinnamon
+item mint_kde             MagOS_Mint KDE
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
 goto ${selected}
 
@@ -207,6 +216,14 @@ goto load
 
 :fedora_kde
 set iso http://mirror.yandex.ru/fedora/linux/releases/21/Live/${archf}/Fedora-Live-KDE-${archf}-21-5.iso
+goto load
+
+:mint_cinnamon
+set iso http://mirror.yandex.ru/linuxmint/stable/17.1/linuxmint-17.1-cinnamon-64bit.iso
+goto load
+
+:mint_kde
+set iso http://mirror.yandex.ru/linuxmint/stable/17.1/linuxmint-17.1-kde-64bit.iso
 goto load
 
 
