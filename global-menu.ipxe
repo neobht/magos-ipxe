@@ -58,6 +58,7 @@ goto ${selected}
 :menu_alt
 menu MagOS_AltLinux NetLive Menu
 item alt_icewm            MagOS_AltLinux IceWM
+item alt_e17              MagOS_AltLinux E17
 item alt_lxde             MagOS_AltLinux LXDE
 item alt_mate             MagOS_AltLinux Mate
 item alt_cinnamon         MagOS_AltLinux Cinnamon
@@ -202,6 +203,10 @@ goto load
 
 :alt_lxde
 set iso http://nightly.altlinux.org/p7/release/altlinux-p7-lxde-20141212-${arch}.iso
+goto load
+
+:alt_e17
+set iso http://nightly.altlinux.org/p7/release/altlinux-p7-e17-20141212-${arch}.iso
 goto load
 
 :alt_mate
