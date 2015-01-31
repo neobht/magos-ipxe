@@ -13,6 +13,7 @@ set base_url /repository/netlive
 cpuid --ext 29 && set arch x86_64 || set arch i586
 cpuid --ext 29 && set archr i586 || set archr i586
 cpuid --ext 29 && set archu amd64 || set archu i386
+cpuid --ext 29 && set archf x86_64 || set archf i686 
 
 set magos_params_1 uird.from=
 set magos_params_2 ${server_magos_sibsau}${base_url}/multi/MagOS/modules/${arch} 
@@ -29,7 +30,7 @@ item --key a menu_alt      Boot MagOS_AltLinux ${arch} from Internet
 item --key g menu_mageia   Boot MagOS_Mageia Linux ${arch} from Internet
 item --key u menu_ubuntu   Boot MagOS_Ubuntu Linux ${archu} from Internet
 item --key p menu_pra      Boot MagOS_PRA Linux from Internet
-item  richy                Boot MagOS_Richy Linux from Internet
+item --key f menu_fedora   Boot MagOS_Fedora Linux from Internet
 item  cld                  Boot MagOS_Calculate Linux from Internet
 item
 item --key x exit         Exit iPXE and continue BIOS boot
@@ -69,6 +70,13 @@ item alt_tde              MagOS_AltLinux TDE
 item alt_school           MagOS_AltLinux School Master
 item alt_simply           MagOS_AltLinux Simply
 item alt_centaurus        MagOS_AltLinux Centaurus
+choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
+goto ${selected}
+
+:menu_fedora
+menu MagOS_Fedora NetLive Menu
+item fedora_kde           MagOS_Fedora KDE
+item fedora_gnome         MagOS_Fedora Gnome
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
 goto ${selected}
 
@@ -196,6 +204,11 @@ goto start
 set iso http://mirror.yandex.ru/calculate/CLD/14.12.1/x86_64/cld-14.12.1-x86_64.iso
 set magos_params_2 ${magos_params_2}_c
 goto load
+
+:fedora_kde
+set iso http://mirror.yandex.ru/fedora/linux/releases/21/Live/${archf}/Fedora-Live-KDE-${archf}-21-5.iso
+goto load
+
 
 :alt_icewm
 set iso http://nightly.altlinux.org/p7/release/altlinux-p7-icewm-20141212-${arch}.iso
