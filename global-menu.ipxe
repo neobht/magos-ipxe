@@ -60,6 +60,7 @@ menu MagOS_AltLinux NetLive Menu
 item alt_icewm            MagOS_AltLinux IceWM
 item alt_lxde             MagOS_AltLinux LXDE
 item alt_mate             MagOS_AltLinux Mate
+item alt_cinnamon         MagOS_AltLinux Cinnamon
 item alt_gnome3           MagOS_AltLinux Gnome3
 item alt_kde4             MagOS_AltLinux KDE4
 item alt_xfce             MagOS_AltLinux XFCE
@@ -205,6 +206,10 @@ goto load
 
 :alt_mate
 set iso http://nightly.altlinux.org/p7/release/altlinux-p7-mate-20141212-${arch}.iso
+goto load
+
+:alt_cinnamon
+set iso http://nightly.altlinux.org/p7/release/altlinux-p7-cinnamon-20141212-${arch}.iso
 goto load
 
 :alt_gnome3
