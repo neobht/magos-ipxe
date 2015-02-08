@@ -56,15 +56,15 @@ goto ${selected}
 
 :menu_rosa
 menu MagOS_Rosa NetLive Menu
-item rosa_kde_sibsau_mod      MagOS_Rosa KDE Repack from http://magos.sibsau.ru
-item rosa_kde_sibsau      MagOS_Rosa KDE from http://magos.sibsau.ru
-item rosa_lxde_sibsau      MagOS_Rosa LXDE from http://magos.sibsau.ru
+item rosa_kde_sibsau_mod    MagOS_Rosa KDE Repack from http://magos.sibsau.ru
+item rosa_kde_sibsau        MagOS_Rosa KDE from http://magos.sibsau.ru
+item rosa_lxde_sibsau       MagOS_Rosa LXDE from http://magos.sibsau.ru
 item
-item rosa_kde_rosa        MagOS_Rosa KDE from http://mirror.rosalab..ru
-item rosa_lxde_rosa       MagOS_Rosa LXDE from http://mirror.rosalab..ru
+item rosa_kde_rosa          MagOS_Rosa KDE from http://mirror.rosalab..ru
+item rosa_lxde_rosa         MagOS_Rosa LXDE from http://mirror.rosalab..ru
 item
-item rosa_kde             MagOS_Rosa KDE from http://mirror.yandex.ru
-item rosa_lxde             MagOS_Rosa LXDE from http://mirror.yandex.ru
+item rosa_kde               MagOS_Rosa KDE from http://mirror.yandex.ru
+item rosa_lxde              MagOS_Rosa LXDE from http://mirror.yandex.ru
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
 goto ${selected}
  
@@ -163,15 +163,14 @@ goto start
 :rosa_kde_sibsau
 set iso http://magos.sibsau.ru/repository/netlive/multi/MagOS/iso/rosa/ROSA.FRESH.KDE.R5.${arch}.iso
 set magos_params_2 /LiveOS/squashfs.img;${magos_params_2}
-cpuid --ext 29 && set uird_magos ${uird_magos} || set uird_magos r_uird.magos.cpio.xz
-cpuid --ext 29 && set kernel ${kernel} || set kernel r_vmlinuz
+#cpuid --ext 29 && set uird_magos ${uird_magos} || set uird_magos r_uird.magos.cpio.xz
+#cpuid --ext 29 && set kernel ${kernel} || set kernel r_vmlinuz
 goto load
 
 :rosa_lxde_sibsau
 set iso http://magos.sibsau.ru/repository/netlive/multi/MagOS/iso/rosa/ROSA.FRESH.LXDE.R5.${arch}.iso
 set magos_params_2 /LiveOS/squashfs.img;${magos_params_2}
 set magos_params_3 ${magos_params_3} desktop=lightdm
-
 #cpuid --ext 29 && set uird_magos ${uird_magos} || set uird_magos r_uird.magos.cpio.xz
 #cpuid --ext 29 && set kernel ${kernel} || set kernel r_vmlinuz
 goto load
@@ -184,20 +183,18 @@ goto load
 :rosa_lxde_rosa
 set iso http://mirror.rosalab.ru/rosa/rosa2014.1/iso/ROSA.Fresh.R5/ROSA.FRESH.LXDE.R5.${arch}.iso
 set magos_params_2 /LiveOS/squashfs.img;${magos_params_2}
+set magos_params_3 ${magos_params_3} desktop=lightdm
 goto load
 
 :rosa_kde
 set iso http://mirror.yandex.ru/rosa/rosa2014.1/iso/ROSA.Fresh.R5/ROSA.FRESH.KDE.R5.${arch}.iso
 set magos_params_2 /LiveOS/squashfs.img;${magos_params_2}
-#cpuid --ext 29 && set uird_magos ${uird_magos} || set uird_magos r_uird.magos.cpio.xz
-#cpuid --ext 29 && set kernel ${kernel} || set kernel r_vmlinuz
 goto load
 
 :rosa_lxde
 set iso http://mirror.yandex.ru/rosa/rosa2014.1/iso/ROSA.Fresh.R5/ROSA.FRESH.LXDE.R5.${arch}.iso
 set magos_params_2 /LiveOS/squashfs.img;${magos_params_2}
-#cpuid --ext 29 && set uird_magos ${uird_magos} || set uird_magos r_uird.magos.cpio.xz
-#cpuid --ext 29 && set kernel ${kernel} || set kernel r_vmlinuz
+set magos_params_3 ${magos_params_3} desktop=lightdm
 goto load
 
 :pra
