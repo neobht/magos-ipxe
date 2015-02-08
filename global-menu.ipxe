@@ -11,7 +11,7 @@ set base_url /repository/netlive
 
 # Figure out if client is 64-bit capable
 cpuid --ext 29 && set arch x86_64 || set arch i586
-cpuid --ext 29 && set archr i586 || set archr i586
+cpuid --ext 29 && set archr x86_64 || set archr i586
 cpuid --ext 29 && set archu amd64 || set archu i386
 cpuid --ext 29 && set archf x86_64 || set archf i686 
 
