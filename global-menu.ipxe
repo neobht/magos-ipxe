@@ -150,9 +150,9 @@ chain ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${archr}/vmlinuz ${ma
 goto start
 
 :rosa_kde
-#set rosa_mods http://magos.sibsau.ru/repository/netlive/multi/MagOS/optional/rosa/
 set iso http://mirror.yandex.ru/rosa/rosa2014.1/iso/ROSA.Fresh.R5/ROSA.FRESH.KDE.R5.x86_64.iso
-#set iso http://www.puppyrus.org/~melvik/puppyrus/ftp/puppyrus/puppyrus-a/pra03/iso/1501/pra03-1501.iso
+set magos_params_2 /LiveOS/squashfs.img;${magos_params_2}
+goto load
 echo -n Params: && read params
 set magos_params ${params} ${magos_params_1}${iso};/LiveOS/squashfs.img;${magos_params_2}/ ${magos_params_3}
 
