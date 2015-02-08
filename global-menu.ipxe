@@ -170,7 +170,7 @@ goto load
 :rosa_lxde_sibsau
 set iso http://magos.sibsau.ru/repository/netlive/multi/MagOS/iso/rosa/ROSA.FRESH.LXDE.R5.${arch}.iso
 set magos_params_2 /LiveOS/squashfs.img;${magos_params_2}
-set magos_params_3 ${magos_params_3} desktop=lightdm,lxde
+set magos_params_3 ${magos_params_3} desktop=lightdm
 
 #cpuid --ext 29 && set uird_magos ${uird_magos} || set uird_magos r_uird.magos.cpio.xz
 #cpuid --ext 29 && set kernel ${kernel} || set kernel r_vmlinuz
