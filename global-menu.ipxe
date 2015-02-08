@@ -221,6 +221,7 @@ goto load
 
 :fedora_kde
 set iso http://mirror.yandex.ru/fedora/linux/releases/21/Live/${archf}/Fedora-Live-KDE-${archf}-21-5.iso
+set magos_params_2 /LiveOS/squashfs.img;${magos_params_2}
 goto load
 
 :mint_cinnamon
