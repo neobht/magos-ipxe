@@ -58,6 +58,7 @@ item rosa_kde_rosa        MagOS_Rosa KDE from http://mirror.rosalab..ru
 item rosa_lxde_rosa       MagOS_Rosa LXDE from http://mirror.rosalab..ru
 item
 item rosa_kde             MagOS_Rosa KDE from http://mirror.yandex.ru
+item rosa_lxde             MagOS_Rosa LXDE from http://mirror.yandex.ru
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
 goto ${selected}
  
@@ -161,6 +162,10 @@ set iso http://mirror.yandex.ru/rosa/rosa2014.1/iso/ROSA.Fresh.R5/ROSA.FRESH.KDE
 set magos_params_2 /LiveOS/squashfs.img;${magos_params_2}
 goto load
 
+:rosa_lxde
+set iso http://mirror.yandex.ru/rosa/rosa2014.1/iso/ROSA.Fresh.R5/ROSA.FRESH.LXDE.R5.${arch}.iso
+set magos_params_2 /LiveOS/squashfs.img;${magos_params_2}
+goto load
 
 :pra
 set iso http://mirror.yandex.ru/puppyrus/puppyrus-a/pra03/iso/1501/pra03-1501a.iso
