@@ -136,9 +136,14 @@ initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.magos.c
 
 chain ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/vmlinuz ${magos_params} ||
 goto start
+
 #################################
 :rosa_kde_sibsau
-set rosa_mods http://magos.sibsau.ru/repository/netlive/multi/MagOS/optional/rosa/
+#set rosa_mods http://magos.sibsau.ru/repository/netlive/multi/MagOS/optional/rosa/
+
+set iso http://magos.sibsau.ru/repository/netlive/multi/MagOS/iso/rosa/ROSA.FRESH.KDE.R5.x86_64.iso
+set magos_params_2 /LiveOS/squashfs.img;${magos_params_2}
+goto load
 
 echo -n Params: && read params
 set magos_params ${params} ${magos_params_1}${rosa_mods};${magos_params_2}/ ${magos_params_3}
