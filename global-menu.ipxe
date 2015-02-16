@@ -36,6 +36,7 @@ item --key u menu_ubuntu   Boot MagOS_Ubuntu Linux ${archu} from Internet
 item --key p menu_pra      Boot MagOS_PRA Linux from Internet
 item --key f menu_fedora   Boot MagOS_Fedora Linux from Internet
 item --key z menu_mint     Boot MagOS_Mint Linux from Internet
+item --key d menu_debian   Boot MagOS_Debian Linux from Internet
 item  cld                  Boot MagOS_Calculate Linux from Internet
 item
 item --key x exit         Exit iPXE and continue BIOS boot
@@ -89,6 +90,13 @@ goto ${selected}
 menu MagOS_Fedora NetLive Menu
 item fedora_kde           MagOS_Fedora KDE
 item fedora_gnome         MagOS_Fedora Gnome
+choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
+goto ${selected}
+
+:menu_debian
+menu MagOS_Debian NetLive Menu
+item debian_lxde           MagOS_Debian LXDE
+item debian_gnome         MagOS_Debian Gnome
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
 goto ${selected}
 
@@ -260,6 +268,10 @@ goto load
 
 :mint_kde
 set iso http://mirror.yandex.ru/linuxmint/stable/17.1/linuxmint-17.1-kde-64bit.iso
+goto load
+
+:debian_lxde
+set iso http://mirror.yandex.ru/debian-cd/current-live/${archu}/webboot/debian-live-7.8.0-${archu}-lxde-desktop.squashfs
 goto load
 
 
