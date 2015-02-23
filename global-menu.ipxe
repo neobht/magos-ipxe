@@ -272,7 +272,7 @@ goto load
 
 :debian_lxde
 #set iso http://mirror.yandex.ru/debian-cd/current-live/${archu}/iso-hybrid/debian-live-7.8.0-${archu}-lxde-desktop.iso
-set iso http://mirror.yandex.ru/mirrors/xbmc/releases/kodibuntu/kodibuntu-14.0rc~helix_${archu}.iso
+set iso http://mirror.yandex.ru/mirrors/xbmc/releases/kodibuntu/kodibuntu-14.0~helix_${archu}.iso
 goto load
 :debian_gnome
 set iso http://mirror.yandex.ru/debian-cd/current-live/${archu}/iso-hybrid/debian-live-7.8.0-${archu}-gnome-desktop.iso
