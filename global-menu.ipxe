@@ -21,7 +21,7 @@ cpuid --ext 29 && set archf x86_64 || set archf i686
 
 set magos_params_1 uird.from=
 set magos_params_2 ${server_magos_sibsau}${base_url}/multi/MagOS/modules/${arch} 
-set magos_params_3 uird.load=* uird.ro=*.xzm,*.pfs,*/live,*.sqfs,*.squashfs,*.sfs,*/ext3fs.img root=uird: rw vga=788 lang=ru_RU plymouth.enable=0 uird.config=MagOS_Full.ini
+set magos_params_3 uird.load=* uird.ro=*.xzm,*.pfs,*/live,*.sqfs,*.squashfs,*.sfs,*/ext3fs.img,*/rootfs root=uird: rw vga=788 lang=ru_RU plymouth.enable=0 uird.config=MagOS_Full.ini
 
 ###################### MAIN MENU ####################################
  
@@ -271,7 +271,8 @@ set iso http://mirror.yandex.ru/linuxmint/stable/17.1/linuxmint-17.1-kde-64bit.i
 goto load
 
 :debian_lxde
-set iso http://mirror.yandex.ru/debian-cd/current-live/${archu}/iso-hybrid/debian-live-7.8.0-${archu}-lxde-desktop.iso
+#set iso http://mirror.yandex.ru/debian-cd/current-live/${archu}/iso-hybrid/debian-live-7.8.0-${archu}-lxde-desktop.iso
+set iso http://mirror.yandex.ru/mirrors/xbmc/releases/kodibuntu/kodibuntu-14.0rc~helix_${archu}.iso
 goto load
 :debian_gnome
 set iso http://mirror.yandex.ru/debian-cd/current-live/${archu}/iso-hybrid/debian-live-7.8.0-${archu}-gnome-desktop.iso
