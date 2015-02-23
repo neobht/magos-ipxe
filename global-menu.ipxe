@@ -37,6 +37,7 @@ item --key p menu_pra      Boot MagOS_PRA Linux from Internet
 item --key f menu_fedora   Boot MagOS_Fedora Linux from Internet
 item --key z menu_mint     Boot MagOS_Mint Linux from Internet
 item --key d menu_debian   Boot MagOS_Debian Linux from Internet
+item --key d kodi          Boot MagOS_Kodi amd64 Linux from Internet
 item  cld                  Boot MagOS_Calculate Linux from Internet
 item
 item --key x exit         Exit iPXE and continue BIOS boot
@@ -270,9 +271,12 @@ goto load
 set iso http://mirror.yandex.ru/linuxmint/stable/17.1/linuxmint-17.1-kde-64bit.iso
 goto load
 
+:kodi
+set iso http://mirror.yandex.ru/mirrors/xbmc/releases/kodibuntu/kodibuntu-14.0~helix_amd64.iso
+goto load
+
 :debian_lxde
-#set iso http://mirror.yandex.ru/debian-cd/current-live/${archu}/iso-hybrid/debian-live-7.8.0-${archu}-lxde-desktop.iso
-set iso http://mirror.yandex.ru/mirrors/xbmc/releases/kodibuntu/kodibuntu-14.0~helix_${archu}.iso
+set iso http://mirror.yandex.ru/debian-cd/current-live/${archu}/iso-hybrid/debian-live-7.8.0-${archu}-lxde-desktop.iso
 goto load
 :debian_gnome
 set iso http://mirror.yandex.ru/debian-cd/current-live/${archu}/iso-hybrid/debian-live-7.8.0-${archu}-gnome-desktop.iso
