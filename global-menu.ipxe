@@ -64,6 +64,7 @@ item rosa_lxde_sibsau       MagOS_Rosa LXDE from http://magos.sibsau.ru
 item
 item rosa_kde_rosa          MagOS_Rosa KDE from http://mirror.rosalab..ru
 item rosa_lxde_rosa         MagOS_Rosa LXDE from http://mirror.rosalab..ru
+item rosa_gnome_rosa        MagOS_Rosa Gnome from http://mirror.rosalab..ru
 item
 item rosa_kde               MagOS_Rosa KDE from http://mirror.yandex.ru
 item rosa_lxde              MagOS_Rosa LXDE from http://mirror.yandex.ru
@@ -186,6 +187,11 @@ goto load
 
 :rosa_kde_rosa
 set iso http://mirror.rosalab.ru/rosa/rosa2014.1/iso/ROSA.Fresh.R5/ROSA.FRESH.KDE.R5.${arch}.iso
+set magos_params_2 /LiveOS/squashfs.img;${magos_params_2}
+goto load
+
+:rosa_gnome_rosa
+set iso http://mirror.rosalab.ru/rosa/rosa2014.1/iso/autotested/ROSA.FRESH.GNOME/${arch}/build9535_2015-02-27_01-07-34/ROSA.FRESH.GNOME.R5.9535.b.${arch}.iso
 set magos_params_2 /LiveOS/squashfs.img;${magos_params_2}
 goto load
 
