@@ -294,35 +294,35 @@ set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-icewm-latest-${arch
 goto load
 
 :alt_lxde
-set iso http://nightly.altlinux.org/p7/release/altlinux-p7-lxde-20141212-${arch}.iso
+set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-lxde-latest-${arch}.iso
 goto load
 
 :alt_e17
-set iso http://nightly.altlinux.org/p7/release/altlinux-p7-e17-20141212-${arch}.iso
+set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-e17-latest-${arch}.iso
 goto load
 
 :alt_mate
-set iso http://nightly.altlinux.org/p7/release/altlinux-p7-mate-20141212-${arch}.iso
+set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-mate-latest-${arch}.iso
 goto load
 
 :alt_cinnamon
-set iso http://nightly.altlinux.org/p7/release/altlinux-p7-cinnamon-20141212-${arch}.iso
+set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-cinnamon-latest-${arch}.iso
 goto load
 
 :alt_gnome3
-set iso http://mirror.yandex.ru/altlinux/p7/images/starterkits/altlinux-p7-gnome3-20141212-${arch}.iso
+set iso http://mirror.yandex.ru/altlinux-starterkits/permalink/altlinux-p7-gnome3-latest-${arch}.iso
 goto load
 
 :alt_kde4
-set iso http://mirror.yandex.ru/altlinux/p7/images/starterkits/altlinux-p7-kde4-20141212-${arch}.iso
+set iso http://mirror.yandex.ru/altlinux-starterkits/permalink/altlinux-p7-kde4-latest-${arch}.iso
 goto load
 
 :alt_xfce
-set iso http://mirror.yandex.ru/altlinux/p7/images/starterkits/altlinux-p7-xfce-20141212-${arch}.iso
+set iso http://mirror.yandex.ru/altlinux-starterkits/permalink/altlinux-p7-xfce-latest-${arch}.iso
 goto load
 
 :alt_tde
-set iso http://mirror.yandex.ru/altlinux/p7/images/starterkits/altlinux-p7-tde-20141212-${arch}.iso
+set iso http://mirror.yandex.ru/altlinux-starterkits/permalink/altlinux-p7-tde-latest-${arch}.iso
 goto load
 
 :alt_school
