@@ -290,7 +290,7 @@ goto load
 
 
 :alt_icewm
-set iso http://nightly.altlinux.org/p7/release/altlinux-p7-icewm-20141212-${arch}.iso
+set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-icewm-latest-${arch}.iso
 goto load
 
 :alt_lxde
