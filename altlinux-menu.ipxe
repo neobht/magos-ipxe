@@ -41,7 +41,7 @@ goto ${selected}
 exit
 
 ################################
-:load_alt
+:load
 echo -n Cmdline parameters: && read params
 set magos_params ${params} ${magos_params_1}${iso};${magos_params_2}/ ${magos_params_3}
 
