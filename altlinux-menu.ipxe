@@ -51,11 +51,6 @@ item alt_rescue           Rescue/forensic
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
 goto ${selected}
 
-item
-item --key x exit         Exit iPXE and continue BIOS boot
-choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
-
-goto ${selected}
 
 :cancel
 exit
