@@ -15,8 +15,6 @@ set kernel vmlinuz
 
 # Figure out if client is 64-bit capable
 cpuid --ext 29 && set arch x86_64 || set arch i586
-cpuid --ext 29 && set archu amd64 || set archu i386
-cpuid --ext 29 && set archf x86_64 || set archf i686 
 
 
 set magos_params_1 uird.from=
@@ -24,7 +22,6 @@ set magos_params_2 ${server_magos_sibsau}${base_url}/multi/MagOS/modules/${arch}
 set magos_params_3 uird.load=* uird.noload="" uird.ro=*.xzm,*/live,*/rescue root=uird rw vga=788 lang=ru_RU plymouth.enable=0 uird.config=MagOS_Full.ini
 
 ###################### MAIN MENU ####################################
- 
 :start
 menu
 item --gap --             --------------------------------- ALT Linux p7 starterkits ---------------------------------
@@ -141,7 +138,7 @@ set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-server-ovz-latest-$
 goto load
 
 :alt_builder
-set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-builder-latest-${arch}.iso
+set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-builder-latest-${archu}.iso
 goto load
 
 :alt_rescue
