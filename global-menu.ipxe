@@ -31,6 +31,7 @@ item --gap --             ------------------------------------ Operating systems
 item --key m menu_magos    Boot MagOS Linux from Internet
 item --key r menu_rosa     Boot MagOS_Rosa ${arch} from Internet
 item --key a menu_alt      Boot MagOS_AltLinux ${arch} from Internet
+item --key z menu_alt_auto Boot MagOS_AltLinux ${arch} from Internet (auto)
 item --key g menu_mageia   Boot MagOS_Mageia Linux ${arch} from Internet
 item --key u menu_ubuntu   Boot MagOS_Ubuntu Linux ${archu} from Internet
 item --key p menu_pra      Boot MagOS_PRA Linux from Internet
@@ -70,6 +71,9 @@ item rosa_kde               MagOS_Rosa KDE from http://mirror.yandex.ru
 item rosa_lxde              MagOS_Rosa LXDE from http://mirror.yandex.ru
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
 goto ${selected}
+
+:menu_alt_auto
+chain altlinux-menu.ipxe
  
 :menu_alt
 menu MagOS_AltLinux NetLive Menu

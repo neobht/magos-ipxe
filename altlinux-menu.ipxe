@@ -1,0 +1,145 @@
+#!ipxe
+
+# Some menu defaults
+set menu-timeout 5000
+set submenu-timeout ${menu-timeout}
+#isset ${menu-default} || 
+set menu-default menu_magos
+
+set server_magos_sibsau http://magos.sibsau.ru
+set base_url /repository/netlive
+set uird_magos uird.magos.cpio.xz
+set uird_soft uird.soft.cpio.xz
+set kernel vmlinuz
+
+
+# Figure out if client is 64-bit capable
+cpuid --ext 29 && set arch x86_64 || set arch i586
+cpuid --ext 29 && set archu amd64 || set archu i386
+cpuid --ext 29 && set archf x86_64 || set archf i686 
+
+
+set magos_params_1 uird.from=
+set magos_params_2 ${server_magos_sibsau}${base_url}/multi/MagOS/modules/${arch} 
+set magos_params_3 uird.load=* uird.ro=*.xzm,*.pfs,*/live,*.sqfs,*.squashfs,*.sfs,*/ext3fs.img,*/filesystem.squashfs root=uird: rw vga=788 lang=ru_RU plymouth.enable=0 uird.config=MagOS_Full.ini
+
+###################### MAIN MENU ####################################
+ 
+:start
+menu
+item --gap --             --------------------------------- ALT Linux p7 starterkits ---------------------------------
+menu Boot ALT Linux from internet with MagOS
+item --gap --             --- installable LiveCDs:
+item alt_cinnamon         Cinnamon
+item alt_e17              E17
+item alt_gnome3           GNOME3
+item alt_gnustep          GNUstep (sysvinit)
+item alt_icewm            IceWM (sysvinit)
+item alt_kde4             KDE4
+item alt_lxde             LXDE
+item alt_lxqt             LXQt
+item alt_mate             MATE
+item alt_tde              TDE
+item alt_wmaker           WindowMaker (sysvinit)
+item alt_xfce             Xfce
+item --gap --             --- installers (sysvinit):
+item alt_jeos             JeOS (minimal system)
+item alt_server           Base server
+item alt_server_ovz       OpenVZ hardware node
+item alt_server_hyperv    Suitable for Hyper-V guests
+item alt_sysv-tde         TDE
+item --gap --             --- special LiveCDs:
+item alt_builder          Build environment
+item alt_rescue           Rescue/forensic
+choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
+goto ${selected}
+
+item
+item --key x exit         Exit iPXE and continue BIOS boot
+choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
+
+goto ${selected}
+
+:cancel
+exit
+
+################################
+:load
+echo -n Params: && read params
+set magos_params ${params} ${magos_params_1}${iso};${magos_params_2}/ ${magos_params_3}
+
+initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/${uird_soft} || 
+initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/${uird_magos} || 
+
+chain ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/${kernel} ${magos_params} ||
+goto start
+################################
+:alt_cinnamon
+set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-cinnamon-latest-${arch}.iso
+goto load
+
+:alt_e17
+set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-e17-latest-${arch}.iso
+goto load
+
+:alt_gnome3
+set iso http://nightly.altlinux.org/permalink/altlinux-p7-gnome3-latest-${arch}.iso
+goto load
+
+:alt_gnustep
+set iso http://nightly.altlinux.org/permalink/altlinux-p7-gnustep-latest-${arch}.iso
+goto load
+
+:alt_icewm
+set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-icewm-latest-${arch}.iso
+goto load
+
+:alt_lxde
+set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-lxde-latest-${arch}.iso
+goto load
+
+:alt_lxqt
+set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-lxqt-latest-${arch}.iso
+goto load
+
+:alt_mate
+set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-mate-latest-${arch}.iso
+goto load
+
+:alt_kde4
+set iso http://nightly.altlinux.org/permalink/altlinux-p7-kde4-latest-${arch}.iso
+goto load
+
+:alt_tde
+set iso http://nightly.altlinux.org/permalink/altlinux-p7-tde-latest-${arch}.iso
+goto load
+
+:alt_xfce
+set iso http://nightly.altlinux.org/permalink/altlinux-p7-xfce-latest-${arch}.iso
+goto load
+
+:alt_jeos
+set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-jeos-latest-${arch}.iso
+goto load
+
+:alt_server
+set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-server-latest-${arch}.iso
+goto load
+
+# x86_64 only
+:alt_server_hyperv
+set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-server-hyperv-latest-x86_64.iso
+goto load
+
+:alt_server_ovz
+set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-server-ovz-latest-${arch}.iso
+goto load
+
+:alt_builder
+set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-builder-latest-${arch}.iso
+goto load
+
+:alt_rescue
+set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-rescue-latest-${arch}.iso
+goto load
+
