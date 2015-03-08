@@ -52,6 +52,7 @@ exit
 :menu_magos
 menu MagOS Linux NetLive Menu
 item magos_2014.64          MagOS Linux 2014.64 UIRD from http://magos.sibsau.ru
+item magos_2014             MagOS Linux 2014  from http://magos.sibsau.ru
 item magos_2012             MagOS Linux 2012    from http://magos.sibsau.ru
 item magos_2012lts          MagOS Linux 2012lts from http://magos.sibsau.ru
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
@@ -151,6 +152,10 @@ initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.magos.c
 
 chain ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/vmlinuz ${magos_params} ||
 goto start
+
+:magos_2014
+initrd ${server_magos_sibsau}${base_url}/2014/MagOS/initrd.gz
+chain ${server_magos_sibsau}${base_url}/2014/MagOS/vmlinuz from=${server_magos_sibsau}${base_url}/2014/ rw root=/dev/ram0
 
 #################################
 :rosa_kde_sibsau_mod
