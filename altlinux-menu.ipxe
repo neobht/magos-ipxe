@@ -18,7 +18,7 @@ cpuid --ext 29 && set arch x86_64 || set arch i586
 
 set magos_params_1 uird.from=
 set magos_params_2 ${server_magos_sibsau}${base_url}/multi/MagOS/modules/${arch} 
-set magos_params_3 uird.load=* uird.noload="" uird.ro=*.xzm,*/live,*/rescue root=uird rw vga=788 lang=ru_RU plymouth.enable=0 uird.config=MagOS_Full.ini
+set magos_params_3 uird.load=* uird.noload="" uird.ro=*.xzm,*/live root=uird rw vga=788 lang=ru_RU plymouth.enable=0 uird.config=MagOS_Full.ini
 
 
 ###################### MAIN MENU ####################################
@@ -138,5 +138,6 @@ goto load
 
 :alt_rescue
 set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-rescue-latest-${arch}.iso
+set magos_params_3 uird.ro+=*/rescue ${magos_params_3}
 goto load
 
