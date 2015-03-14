@@ -39,12 +39,12 @@ item alt_mate             MATE
 item alt_tde              TDE
 item alt_wmaker           WindowMaker (sysvinit)
 item alt_xfce             Xfce
-item --gap --             --- installers (sysvinit):
-item alt_jeos             JeOS (minimal system)
-item alt_server           Base server
-item alt_server_ovz       OpenVZ hardware node
-item alt_server_hyperv    Suitable for Hyper-V guests
-item alt_sysv-tde         TDE
+#item --gap --             --- installers (sysvinit):
+#item alt_jeos             JeOS (minimal system)
+#item alt_server           Base server
+#item alt_server_ovz       OpenVZ hardware node
+#item alt_server_hyperv    Suitable for Hyper-V guests
+#item alt_sysv-tde         TDE
 item --gap --             --- special LiveCDs:
 item alt_builder          Build environment
 item alt_rescue           Rescue/forensic
