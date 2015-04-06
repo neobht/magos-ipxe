@@ -32,7 +32,7 @@ item --key m menu_magos    Boot MagOS Linux from Internet
 item --key r menu_rosa     Boot MagOS_Rosa ${arch} from Internet
 item --key a menu_alt      Boot MagOS ALT Linux ${arch} from Internet
 item --key z menu_alt_auto Boot MagOS ALT Linux ${arch} from Internet (starter kits)
-#item --key g menu_mageia   Boot MagOS_Mageia Linux ${arch} from Internet
+item --key g menu_mageia   Boot MagOS_Mageia Linux ${arch} from Internet
 #item --key u menu_ubuntu   Boot MagOS_Ubuntu Linux ${archu} from Internet
 #item --key p menu_pra      Boot MagOS_PRA Linux from Internet
 item --key f menu_fedora   Boot MagOS_Fedora Linux from Internet
