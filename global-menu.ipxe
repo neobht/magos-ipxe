@@ -28,18 +28,18 @@ set magos_params_3 uird.load=* uird.ro=*.xzm,*.pfs,*/live,*.sqfs,*.squashfs,*.sf
 :start
 menu
 item --gap --             ------------------------------------ Operating systems ------------------------------------
-item --key m menu_magos    Boot MagOS Linux from Internet
-item --key r menu_rosa     Boot MagOS_Rosa ${arch} from Internet
-item --key a menu_alt      Boot MagOS ALT Linux ${arch} from Internet
-item --key z menu_alt_auto Boot MagOS ALT Linux ${arch} from Internet (starter kits)
-item --key g menu_mageia   Boot MagOS_Mageia Linux ${arch} from Internet
+item --key m menu_magos             Boot MagOS Linux from Internet
+item --key r menu_rosa              Boot MagOS Rosa ${arch} from Internet
+item --key a menu_alt               Boot MagOS ALT Linux ${arch} from Internet
+item --key z menu_alt_starterkits   Boot MagOS ALT Linux ${arch} from Internet (starter kits)
+item --key g menu_mageia            Boot MagOS Mageia Linux ${arch} from Internet
 #item --key u menu_ubuntu   Boot MagOS_Ubuntu Linux ${archu} from Internet
 #item --key p menu_pra      Boot MagOS_PRA Linux from Internet
-item --key f menu_fedora   Boot MagOS_Fedora Linux from Internet
+item --key f menu_fedora            Boot MagOS Fedora Linux from Internet
 #item --key z menu_mint     Boot MagOS_Mint Linux from Internet
 #item --key d menu_debian   Boot MagOS_Debian Linux from Internet
-item --key d kodi          Boot MagOS_Kodi amd64 Linux from Internet
-item  cld                  Boot MagOS_Calculate Linux from Internet
+item --key d kodi                   Boot MagOS Kodi amd64 Linux from Internet
+item  cld                           Boot MagOS Calculate Linux from Internet
 item
 item --key x exit         Exit iPXE and continue BIOS boot
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
@@ -61,16 +61,11 @@ goto ${selected}
 :menu_rosa
 chain rosa-menu.ipxe
 
-:menu_alt_auto
-chain altlinux-menu.ipxe
+:menu_alt_starterkits
+chain altlinux-starterkits-menu.ipxe
  
 :menu_alt
-menu MagOS_AltLinux NetLive Menu
-item alt_school           MagOS_AltLinux School Master
-item alt_simply           MagOS_AltLinux Simply
-item alt_centaurus        MagOS_AltLinux Centaurus
-choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
-goto ${selected}
+chain altlinux-menu.ipxe
 
 :menu_fedora
 menu MagOS_Fedora NetLive Menu
@@ -225,17 +220,6 @@ goto load
 
 
 
-:alt_school
-set iso http://mirror.yandex.ru/altlinux/p7/images/school/altlinux-7.0.4-school-master-${arch}-ru-install-dvd5.iso
-goto load
-
-:alt_simply
-set iso http://mirror.yandex.ru/altlinux/p7/images/simply/altlinux-7.0.4-simply-${arch}-live-dvd5.iso 
-goto load
-
-:alt_centaurus
-set iso http://mirror.yandex.ru/altlinux/p7/images/centaurus/altlinux-7.0.4-centaurus-${arch}-ru-live-cd.iso
-goto load
 
 
 :mageia4_1_gnome

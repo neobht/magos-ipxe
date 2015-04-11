@@ -24,30 +24,11 @@ set magos_params_3 uird.load=* uird.noload="" uird.ro=*.xzm,*/live root=uird rw 
 ###################### MAIN MENU ####################################
 :start
 menu
-item --gap --             --------------------------------- ALT Linux p7 starterkits ---------------------------------
+item --gap --             --------------------------------- ALT Linux p7  ---------------------------------
 menu Boot ALT Linux from internet with MagOS
-item --gap --             --- installable LiveCDs:
-item alt_cinnamon         Cinnamon
-item alt_e17              E17
-item alt_gnome3           GNOME3
-item alt_gnustep          GNUstep (sysvinit)
-item alt_icewm            IceWM (sysvinit)
-item alt_kde4             KDE4
-item alt_lxde             LXDE
-item alt_lxqt             LXQt
-item alt_mate             MATE
-item alt_tde              TDE
-item alt_wmaker           WindowMaker (sysvinit)
-item alt_xfce             Xfce
-#item --gap --             --- installers (sysvinit):
-#item alt_jeos             JeOS (minimal system)
-#item alt_server           Base server
-#item alt_server_ovz       OpenVZ hardware node
-#item alt_server_hyperv    Suitable for Hyper-V guests
-#item alt_sysv-tde         TDE
-item --gap --             --- special LiveCDs:
-item alt_builder          Build environment
-item alt_rescue           Rescue/forensic
+item alt_school           Alt Linux School Master
+item alt_simply           Alt Linux Simply
+item alt_centaurus        Alt Linux Centaurus
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
 goto ${selected}
 
@@ -66,78 +47,16 @@ initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/${uird_magos
 chain ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/${kernel} ${magos_params} ||
 goto start
 ################################
-
-:alt_cinnamon
-set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-cinnamon-latest-${arch}.iso
+:alt_school
+set iso http://mirror.yandex.ru/altlinux/p7/images/school/altlinux-7.0.4-school-master-${arch}-ru-install-dvd5.iso
 goto load
 
-:alt_e17
-set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-e17-latest-${arch}.iso
+:alt_simply
+set iso http://mirror.yandex.ru/altlinux/p7/images/simply/altlinux-7.0.4-simply-${arch}-live-dvd5.iso 
 goto load
 
-:alt_gnome3
-set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-gnome3-latest-${arch}.iso
+:alt_centaurus
+set iso http://mirror.yandex.ru/altlinux/p7/images/centaurus/altlinux-7.0.4-centaurus-${arch}-ru-live-cd.iso
 goto load
 
-:alt_gnustep
-set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-gnustep-latest-${arch}.iso
-goto load
-
-:alt_icewm
-set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-icewm-latest-${arch}.iso
-goto load
-
-:alt_lxde
-set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-lxde-latest-${arch}.iso
-goto load
-
-:alt_lxqt
-set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-lxqt-latest-${arch}.iso
-goto load
-
-:alt_mate
-set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-mate-latest-${arch}.iso
-goto load
-
-:alt_kde4
-set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-kde4-latest-${arch}.iso
-goto load
-
-:alt_tde
-set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-tde-latest-${arch}.iso
-goto load
-
-:alt_wmaker
-set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-wmaker-latest-${arch}.iso
-goto load
-
-:alt_xfce
-set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-xfce-latest-${arch}.iso
-goto load
-
-:alt_jeos
-set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-jeos-latest-${arch}.iso
-goto load
-
-:alt_server
-set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-server-latest-${arch}.iso
-goto load
-
-# x86_64 only
-:alt_server_hyperv
-set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-server-hyperv-latest-x86_64.iso
-goto load
-
-:alt_server_ovz
-set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-server-ovz-latest-${arch}.iso
-goto load
-
-:alt_builder
-set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-builder-latest-${archu}.iso
-goto load
-
-:alt_rescue
-set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-rescue-latest-${arch}.iso
-set magos_params_3 uird.ro+=*/rescue ${magos_params_3}
-goto load
 
