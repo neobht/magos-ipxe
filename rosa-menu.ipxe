@@ -1,3 +1,5 @@
+#!ipxe
+
 menu MagOS_Rosa NetLive Menu
 item rosa_kde_sibsau_mod    MagOS_Rosa KDE Repack from http://magos.sibsau.ru
 item rosa_kde_sibsau        MagOS_Rosa KDE from http://magos.sibsau.ru
