@@ -37,6 +37,21 @@ item rosa_lxde              MagOS_Rosa LXDE from http://mirror.yandex.ru
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
 goto ${selected}
 
+:cancel
+exit
+
+################################
+:load
+echo -n Cmdline parameters: && read params
+set magos_params ${params} ${magos_params_1}${iso};${magos_params_2}/ ${magos_params_3}
+
+initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/${uird_soft} || 
+initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/${uird_magos} || 
+
+chain ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/${kernel} ${magos_params} ||
+goto start
+################################
+
 :rosa_kde_sibsau_mod
 set arch i586
 set mods ${server_magos_sibsau}${base_url}/multi/MagOS/optional/rosa/
