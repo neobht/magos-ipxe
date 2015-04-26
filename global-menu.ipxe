@@ -33,7 +33,7 @@ item --key r menu_rosa              Boot MagOS Rosa ${arch} from Internet
 item --key a menu_alt               Boot MagOS ALT Linux ${arch} from Internet
 item --key z menu_alt_starterkits   Boot MagOS ALT Linux ${arch} from Internet (starter kits)
 item --key g menu_mageia            Boot MagOS Mageia Linux ${arch} from Internet
-#item --key u menu_ubuntu   Boot MagOS_Ubuntu Linux ${archu} from Internet
+item --key u menu_ubuntu   Boot MagOS_Ubuntu Linux ${archu} from Internet
 #item --key p menu_pra      Boot MagOS_PRA Linux from Internet
 item --key f menu_fedora            Boot MagOS Fedora Linux from Internet
 #item --key z menu_mint     Boot MagOS_Mint Linux from Internet
@@ -100,7 +100,7 @@ goto ${selected}
 
 :menu_ubuntu
 menu MagOS_Ubuntu NetLive Menu
-item ubuntu               MagOS_Ubuntu Desktop 14.04.1
+item ubuntu               MagOS_Ubuntu Desktop 15.04
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
 goto ${selected}
 
@@ -250,7 +250,7 @@ goto load
 
 
 :ubuntu
-set iso http://linux.nsu.ru/ubuntu-releases/14.04.1/ubuntu-14.04.1-desktop-${archu}.iso
+set iso http://linux.nsu.ru/ubuntu-releases/15.04/ubuntu-15.04-desktop-${archu}.iso
 goto load
 #set repo http://mirror.yandex.ru/ubuntu-cdimage/livecd-base/livecd-base/20150115/
 echo -n Params: && read params
