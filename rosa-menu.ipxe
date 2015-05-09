@@ -28,12 +28,14 @@ item rosa_kde_sibsau_mod    MagOS_Rosa KDE Repack from http://magos.sibsau.ru
 item rosa_kde_sibsau        MagOS_Rosa KDE from http://magos.sibsau.ru
 item rosa_lxde_sibsau       MagOS_Rosa LXDE from http://magos.sibsau.ru
 item
-item rosa_kde_rosa          MagOS_Rosa KDE from http://mirror.rosalab..ru
-item rosa_lxde_rosa         MagOS_Rosa LXDE from http://mirror.rosalab..ru
-item rosa_gnome_rosa        MagOS_Rosa Gnome from http://mirror.rosalab..ru
+item rosa_kde_rosa          MagOS_Rosa KDE from http://mirror.rosalab.ru
+item rosa_lxde_rosa         MagOS_Rosa LXDE from http://mirror.rosalab.ru
+item rosa_gnome_rosa        MagOS_Rosa Gnome from http://mirror.rosalab.ru
 item
 item rosa_kde               MagOS_Rosa KDE from http://mirror.yandex.ru
 item rosa_lxde              MagOS_Rosa LXDE from http://mirror.yandex.ru
+item
+item rosa_kde_rosa_au       MagOS_Rosa autotesting 10911 KDE from http://mirror.rosalab.ru
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
 goto ${selected}
 
@@ -104,4 +106,10 @@ goto load
 set iso http://mirror.yandex.ru/rosa/rosa2014.1/iso/ROSA.Fresh.R5/ROSA.FRESH.LXDE.R5.${arch}.iso
 set magos_params_2 /LiveOS/squashfs.img;${magos_params_2}
 set magos_params_3 ${magos_params_3} desktop=lightdm
+goto load
+
+:rosa_kde_rosa_au
+#set iso http://mirror.rosalab.ru/rosa/rosa2014.1/iso/ROSA.Fresh.R5/ROSA.FRESH.KDE.R5.${arch}.iso
+set iso http://mirror.rosalab.ru/rosa/rosa2014.1/iso/autotested/ROSA.FRESH.KDE/${arch}/build10911_2015-05-07_20-47-38/ROSA.FRESH.KDE.R5.10911.b.${arch}.iso
+set magos_params_2 /LiveOS/squashfs.img;${magos_params_2}
 goto load
