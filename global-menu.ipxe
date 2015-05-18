@@ -219,8 +219,10 @@ goto load
 set iso http://mirror.yandex.ru/debian-cd/current-live/${archu}/iso-hybrid/debian-live-7.8.0-${archu}-gnome-desktop.iso
 goto load
 
+
+
 :menu_pclos
-set iso http://mirror.cedia.org.ec/pclinuxos/pclinuxos/live-cd/pclinuxos64-kde-fullmonty-2014.12.iso
+set iso http://mirrors.xservers.ro/pclinuxos/pclinuxos/live-cd/pclinuxos64-kde-fullmonty-2014.12.iso
 goto load
 
 
