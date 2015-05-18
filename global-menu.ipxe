@@ -220,7 +220,7 @@ set iso http://mirror.yandex.ru/debian-cd/current-live/${archu}/iso-hybrid/debia
 goto load
 
 :menu_pclos
-set iso http://spout.ussg.indiana.edu/linux/pclinuxos/pclinuxos/live-cd/pclinuxos64-kde-fullmonty-2014.12.iso
+set iso http://ftp.jaist.ac.jp/pub/Linux/PCLinuxOS/pclinuxos/live-cd/pclinuxos64-kde-fullmonty-2014.12.iso
 goto load
 
 
