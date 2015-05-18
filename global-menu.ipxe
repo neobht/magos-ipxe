@@ -34,6 +34,7 @@ item --key a menu_alt               Boot MagOS ALT Linux ${arch} from Internet
 item --key z menu_alt_starterkits   Boot MagOS ALT Linux ${arch} from Internet (starter kits)
 item --key g menu_mageia            Boot MagOS Mageia Linux ${arch} from Internet
 item --key u menu_ubuntu   Boot MagOS_Ubuntu Linux ${archu} from Internet
+item --key p menu_pclos   Boot MagOS_PClinuxOS x86_64 from Internet
 #item --key p menu_pra      Boot MagOS_PRA Linux from Internet
 item --key f menu_fedora            Boot MagOS Fedora Linux from Internet
 #item --key z menu_mint     Boot MagOS_Mint Linux from Internet
@@ -218,6 +219,9 @@ goto load
 set iso http://mirror.yandex.ru/debian-cd/current-live/${archu}/iso-hybrid/debian-live-7.8.0-${archu}-gnome-desktop.iso
 goto load
 
+:menu_pclos
+set iso http://spout.ussg.indiana.edu/linux/pclinuxos/pclinuxos/live-cd/pclinuxos64-kde-fullmonty-2014.12.iso
+goto load
 
 
 
