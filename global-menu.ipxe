@@ -66,7 +66,7 @@ chain rosa-menu.ipxe
 :menu_alt_starterkits
 chain altlinux-starterkits-menu.ipxe
 
-:menu_alt_starterkits_ya
+:menu_alt_starterkits_y
 chain yandex-altlinux-starterkits-menu.ipxe
  
 :menu_alt
