@@ -111,6 +111,6 @@ goto load
 :rosa_kde_rosa_au
 set arch x86_64
 #set iso http://mirror.rosalab.ru/rosa/rosa2014.1/iso/ROSA.Fresh.R5/ROSA.FRESH.KDE.R5.${arch}.iso
-set iso http://mirror.rosalab.ru/rosa/rosa2014.1/iso/autotested/ROSA.FRESH.KDE/${arch}/build10911_2015-05-07_20-47-38/ROSA.FRESH.KDE.R5.10911.b.${arch}.iso
+set iso http://mirror.rosalab.ru/rosa/rosa2014.1/iso/autotested/ROSA.FRESH.KDE/${arch}/build11549_2015-06-07_21-00-29/ROSA.FRESH.KDE.R5.11549.b.${arch}.iso
 set magos_params_2 /LiveOS/squashfs.img;${magos_params_2}
 goto load
