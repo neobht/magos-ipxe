@@ -97,8 +97,8 @@ goto ${selected}
 menu MagOS_Mageia NetLive Menu
 item mageia4_1_kde            MagOS_Mageia 4.1 KDE
 item mageia4_1_gnome          MagOS_Mageia 4.1 Gnome
-item mageia5_kde              MagOS_Mageia 5 RC KDE
-item mageia5_gnome            MagOS_Mageia 5 RC Gnome
+item mageia5_kde              MagOS_Mageia 5 KDE
+item mageia5_gnome            MagOS_Mageia 5 Gnome
 
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
 goto ${selected}
@@ -243,12 +243,12 @@ set magos_params_2 ${magos_params_2}_nonFHS
 goto load
 
 :mageia5_kde
-set iso http://mirror.yandex.ru/mageia/iso/cauldron/Mageia-5-RC-LiveDVD-KDE4-${arch}-DVD/Mageia-5-RC-LiveDVD-KDE4-${arch}-DVD.iso
+set iso http://mirror.yandex.ru/mageia/iso/5/Mageia-5-LiveDVD-KDE4-${arch}-DVD/Mageia-5-LiveDVD-KDE4-${arch}-DVD.iso
 set magos_params_2 ${magos_params_2}_nonFHS
 goto load
 
 :mageia5_gnome
-set iso http://mirror.yandex.ru/mageia/iso/cauldron/Mageia-5-RC-LiveDVD-GNOME-${arch}-DVD/Mageia-5-RC-LiveDVD-GNOME-${arch}-DVD.iso
+set iso http://mirror.yandex.ru/mageia/iso/5/Mageia-5-LiveDVD-GNOME-${arch}-DVD/Mageia-5-LiveDVD-GNOME-${arch}-DVD.iso
 set magos_params_2 ${magos_params_2}_nonFHS
 goto load
 
