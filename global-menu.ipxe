@@ -33,7 +33,7 @@ item --key r menu_rosa              Boot MagOS Rosa ${arch} from Internet
 item --key a menu_alt               Boot MagOS ALT Linux ${arch} from Internet
 item --key z menu_alt_starterkits   Boot MagOS ALT Linux ${arch} from Internet (starter kits)
 item --key z menu_alt_starterkits_y Boot MagOS ALT Linux ${arch} from Internet (starter kits) Yandex
-item --key z menu_alt_regular_y Boot MagOS ALT Linux ${arch} from Internet (starter kits) Yandex
+item --key z menu_alt_regular_y     Boot MagOS ALT Linux ${arch} from Internet (regular) Yandex
 item --key g menu_mageia            Boot MagOS Mageia Linux ${arch} from Internet
 item --key u menu_ubuntu   Boot MagOS_Ubuntu Linux ${archu} from Internet
 item --key p menu_pclos   Boot MagOS_PClinuxOS x86_64 from Internet
