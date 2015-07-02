@@ -40,7 +40,7 @@ item --key p menu_pclos   Boot MagOS_PClinuxOS x86_64 from Internet
 #item --key p menu_pra      Boot MagOS_PRA Linux from Internet
 item --key f menu_fedora            Boot MagOS Fedora Linux from Internet
 #item --key z menu_mint     Boot MagOS_Mint Linux from Internet
-#item --key d menu_debian   Boot MagOS_Debian Linux from Internet
+item --key d menu_debian   Boot MagOS_Debian/Astra Linux from Internet
 item --key d kodi                   Boot MagOS Kodi amd64 Linux from Internet
 item  cld                           Boot MagOS Calculate Linux from Internet
 item
@@ -87,6 +87,7 @@ goto ${selected}
 menu MagOS_Debian NetLive Menu
 item debian_lxde           MagOS_Debian LXDE
 item debian_gnome         MagOS_Debian Gnome
+item astra                MagOS_Astra Orel
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
 goto ${selected}
 
@@ -226,7 +227,9 @@ goto load
 :debian_gnome
 set iso http://mirror.yandex.ru/debian-cd/current-live/${archu}/iso-hybrid/debian-live-7.8.0-${archu}-gnome-desktop.iso
 goto load
-
+:astra
+set iso http://mirror.yandex.ru/astra/current/orel/iso/live/orel_live_2015030601.iso
+goto load
 
 
 :menu_pclos
