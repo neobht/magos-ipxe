@@ -24,7 +24,6 @@ set magos_params_3 uird.load=* uird.noload="" uird.ro=*.xzm,*/ext3fs.img root=ui
 ###################### MAIN MENU ####################################
 :start
 menu MagOS_Rosa NetLive Menu
-item rosa_kde_sibsau_mod    MagOS_Rosa KDE Repack from http://magos.sibsau.ru
 item rosa_kde_sibsau        MagOS_Rosa KDE from http://magos.sibsau.ru
 item rosa_lxde_sibsau       MagOS_Rosa LXDE from http://magos.sibsau.ru
 item
