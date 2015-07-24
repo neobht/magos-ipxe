@@ -82,7 +82,7 @@ set magos_params_3 ${magos_params_3} desktop=lightdm
 goto load
 
 :rosa_kde_rosa
-set iso http://mirror.rosalab.ru/rosa/rosa2014.1/iso/ROSA.Fresh.R6/ROSA.FRESH.KDE.R5.${arch}.iso
+set iso http://mirror.rosalab.ru/rosa/rosa2014.1/iso/ROSA.Fresh.R6/ROSA.FRESH.KDE.R6.${arch}.iso
 set magos_params_2 /LiveOS/squashfs.img;${magos_params_2}
 goto load
 
