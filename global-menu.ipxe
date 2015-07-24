@@ -148,7 +148,7 @@ goto start
 
 :magos_2014
 initrd ${server_magos_sibsau}${base_url}/2014red/MagOS/initrd.gz
-chain ${server_magos_sibsau}${base_url}/2014red/MagOS/vmlinuz from=${server_magos_sibsau}${base_url}/2014red/ rw root=/dev/ram0
+chain ${server_magos_sibsau}${base_url}/2014red/MagOS/vmlinuz from=${server_magos_sibsau}${base_url}/2014red/ rw root=/dev/ram0 plymouth.enable=0
 
 #################################
 
