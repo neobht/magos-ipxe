@@ -54,7 +54,8 @@ exit
 
 :menu_magos
 menu MagOS Linux NetLive Menu
-item magos_2014.64          MagOS Linux 2014.64 UIRD from http://magos.sibsau.ru
+item magos_2014.64          MagOS Linux 2014.64 + UIRD from http://magos.sibsau.ru
+item magos_2014_uird        MagOS Linux 2014 RED + UIRD from http://magos.sibsau.ru
 item magos_2014             MagOS Linux 2014 RED  from http://magos.sibsau.ru
 item magos_2012             MagOS Linux 2012    from http://magos.sibsau.ru
 item magos_2012lts          MagOS Linux 2012lts from http://magos.sibsau.ru
@@ -145,6 +146,20 @@ initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.magos.c
 
 chain ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/vmlinuz ${magos_params} ||
 goto start
+
+:magos_2014_uird
+set magos_mods http://magos.sibsau.ru/repository/netlive/2014red/MagOS/
+set arch x86_64
+
+echo -n Params: && read params
+set magos_params ${params} uird.config=MagOS_Full.ini uird.noload=/optional/ ${magos_params_1}${magos_mods};${magos_params_2}/ ${magos_params_3}
+
+initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.soft.cpio.xz || 
+initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.magos.cpio.xz || 
+
+chain ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/vmlinuz ${magos_params} ||
+goto start
+
 
 :magos_2014
 initrd ${server_magos_sibsau}${base_url}/2014red/MagOS/initrd.gz
