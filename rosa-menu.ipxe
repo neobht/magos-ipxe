@@ -35,6 +35,7 @@ item rosa_kde               MagOS_Rosa KDE from http://mirror.yandex.ru
 item rosa_lxde              MagOS_Rosa LXDE from http://mirror.yandex.ru
 item
 item rosa_kde_rosa_au       MagOS_Rosa autotesting 12261 KDE from http://mirror.rosalab.ru
+item rosa_kde_plasma5       MagOS_Rosa KDE Plasma5 from ABF
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
 goto ${selected}
 
@@ -111,5 +112,12 @@ goto load
 set arch x86_64
 #set iso http://mirror.rosalab.ru/rosa/rosa2014.1/iso/ROSA.Fresh.R5/ROSA.FRESH.KDE.R5.${arch}.iso
 set iso http://mirror.rosalab.ru/rosa/rosa2014.1/iso/autotested/ROSA.FRESH.KDE/x86_64/build12261_2015-07-23_21-17-12/ROSA.FRESH.KDE.R6.12261.b.x86_64.iso
+set magos_params_2 /LiveOS/squashfs.img;${magos_params_2}
+goto load
+
+:rosa_kde_plasma5
+set arch x86_64
+#set iso http://mirror.rosalab.ru/rosa/rosa2014.1/iso/ROSA.Fresh.R5/ROSA.FRESH.KDE.R5.${arch}.iso
+set iso http://file-store.rosalinux.ru/api/v1/file_stores/9bb451d76e5da9f9fcda8113dc18bc2041ad041d
 set magos_params_2 /LiveOS/squashfs.img;${magos_params_2}
 goto load
