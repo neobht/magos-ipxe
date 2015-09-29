@@ -43,6 +43,7 @@ item --key f menu_fedora            Boot MagOS Fedora Linux from Internet
 item --key d menu_debian   Boot MagOS_Debian/Astra Linux from Internet
 item --key d kodi                   Boot MagOS Kodi amd64 Linux from Internet
 item  cld                           Boot MagOS Calculate Linux from Internet
+item  tails                          Boot MagOS Tails Linux from Internet
 item
 item --key x exit         Exit iPXE and continue BIOS boot
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
@@ -244,6 +245,10 @@ set iso http://mirror.yandex.ru/debian-cd/current-live/${archu}/iso-hybrid/debia
 goto load
 :astra
 set iso http://mirror.yandex.ru/astra/current/orel/iso/live/orel_live_2015030601.iso
+goto load
+
+:tails
+set iso http://dl.amnesia.boum.org/tails/stable/tails-i386-1.6/tails-i386-1.6.iso
 goto load
 
 
