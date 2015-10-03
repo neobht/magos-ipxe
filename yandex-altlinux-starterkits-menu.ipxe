@@ -133,7 +133,7 @@ set iso http://mirror.yandex.ru/altlinux-starterkits/permalink/altlinux-p7-serve
 goto load
 
 :alt_builder
-set iso http://mirror.yandex.ru/altlinux-starterkits/permalink/altlinux-p7-builder-latest-${archu}.iso
+set iso http://mirror.yandex.ru/altlinux-starterkits/permalink/altlinux-p7-builder-latest-${arch}.iso
 goto load
 
 :alt_rescue
