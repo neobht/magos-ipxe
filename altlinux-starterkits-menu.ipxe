@@ -40,7 +40,7 @@ item alt_tde              TDE
 item alt_wmaker           WindowMaker (sysvinit)
 item alt_xfce             Xfce
 item --gap --             --- installers (sysvinit):
-#item alt_jeos             JeOS (minimal system)
+item alt_jeos             JeOS (minimal system)
 #item alt_server           Base server
 item alt_server_ovz       OpenVZ hardware node
 #item alt_server_hyperv    Suitable for Hyper-V guests
