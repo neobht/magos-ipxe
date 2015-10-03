@@ -56,7 +56,7 @@ set magos_mods http://magos.sibsau.ru/repository/netlive/2014.64/MagOS/
 set arch x86_64
 
 echo -n Params: && read params
-set magos_params ${params} uird.config=MagOS_Full.ini uird.noload=/optional/,99-magos-patches ${magos_params_1}${magos_mods};${magos_params_2}/ ${magos_params_3}
+set magos_params ${params} uird.config=MagOS_Full.ini uird.noload=/optional/,90-magos-patches ${magos_params_1}${magos_mods};${magos_params_2}/ ${magos_params_3}
 
 initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.soft.cpio.xz || 
 initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.magos.cpio.xz || 
