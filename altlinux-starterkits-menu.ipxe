@@ -135,7 +135,7 @@ set iso ${server_magos_sibsau}${base_url}/multi/MagOS/mini/alt
 goto load
 
 :alt_builder
-set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-builder-latest-${archu}.iso
+set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-builder-latest-${arch}.iso
 goto load
 
 :alt_rescue
