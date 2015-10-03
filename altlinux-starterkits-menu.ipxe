@@ -39,7 +39,7 @@ item alt_mate             MATE
 item alt_tde              TDE
 item alt_wmaker           WindowMaker (sysvinit)
 item alt_xfce             Xfce
-#item --gap --             --- installers (sysvinit):
+item --gap --             --- installers (sysvinit):
 #item alt_jeos             JeOS (minimal system)
 #item alt_server           Base server
 item alt_server_ovz       OpenVZ hardware node
@@ -130,8 +130,8 @@ goto load
 
 :alt_server_ovz
 #set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-server-ovz-latest-${arch}.iso
-set iso 
-set magos_params_2 ${server_magos_sibsau}${base_url}/multi/MagOS/mini/alt 
+set iso ${server_magos_sibsau}${base_url}/multi/MagOS/mini/alt
+
 goto load
 
 :alt_builder
