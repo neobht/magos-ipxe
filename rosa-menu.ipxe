@@ -5,8 +5,8 @@ set submenu-timeout ${menu-timeout}
 #isset ${menu-default} || 
 set menu-default menu_magos
 
-set server_magos_sibsau http://magos.sibsau.ru
-set base_url /repository/netlive
+set server_magos http://mirror.rosalab.ru
+set base_url /magos/netlive
 set uird_magos uird.magos.cpio.xz
 set uird_soft uird.soft.cpio.xz
 set kernel vmlinuz
@@ -17,7 +17,7 @@ cpuid --ext 29 && set arch x86_64 || set arch i586
 
 
 set magos_params_1 uird.from=
-set magos_params_2 ${server_magos_sibsau}${base_url}/multi/MagOS/modules/${arch} 
+set magos_params_2 ${server_magos}${base_url}/multi/MagOS/modules/${arch} 
 set magos_params_3 uird.load=* uird.noload="" uird.ro=*.xzm,*/ext3fs.img root=uird rw vga=788 lang=ru_RU plymouth.enable=0 uird.config=MagOS_Full.ini
 
 
@@ -47,24 +47,13 @@ exit
 echo -n Cmdline parameters: && read params
 set magos_params ${params} ${magos_params_1}${iso};${magos_params_2}/ ${magos_params_3}
 
-initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/${uird_soft} || 
-initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/${uird_magos} || 
+initrd ${server_magos}${base_url}/multi/MagOS/kernel/${arch}/${uird_soft} || 
+initrd ${server_magos}${base_url}/multi/MagOS/kernel/${arch}/${uird_magos} || 
 
-chain ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/${kernel} ${magos_params} ||
+chain ${server_magos}${base_url}/multi/MagOS/kernel/${arch}/${kernel} ${magos_params} ||
 goto start
 ################################
 
-:rosa_kde_sibsau_mod
-set arch i586
-set mods ${server_magos_sibsau}${base_url}/multi/MagOS/optional/rosa/
-echo -n Params: && read params
-set magos_params ${params} ${magos_params_1}${mods};${magos_params_2}/ ${magos_params_3}
-
-initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/${uird_soft} || 
-initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/${uird_magos} || 
-
-chain ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/${kernel} ${magos_params} ||
-goto start
 
 :rosa_kde_sibsau
 set iso http://magos.sibsau.ru/repository/netlive/multi/MagOS/iso/rosa/ROSA.FRESH.KDE.R6.${arch}.iso
