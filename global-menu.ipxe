@@ -82,7 +82,7 @@ goto ${selected}
 menu MagOS_Debian NetLive Menu
 item debian_lxde           MagOS_Debian LXDE
 item debian_gnome         MagOS_Debian Gnome
-item debian_standart      MagOS_Debian Standart
+item debian_standard      MagOS_Debian Standard
 item astra                MagOS_Astra Orel
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
 goto ${selected}
@@ -208,8 +208,8 @@ goto load
 set iso http://mirror.yandex.ru/debian-cd/current-live/${archu}/iso-hybrid/debian-live-8.2.0-${archu}-gnome-desktop.iso
 goto load
 
-:debian_standart
-set iso http://mirror.yandex.ru/debian-cd/current-live/${archu}/iso-hybrid/debian-live-8.2.0-${archu}-standart.iso
+:debian_standard
+set iso http://mirror.yandex.ru/debian-cd/current-live/${archu}/iso-hybrid/debian-live-8.2.0-${archu}-standard.iso
 goto load
 
 
