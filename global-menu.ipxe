@@ -214,7 +214,7 @@ goto load
 
 
 :astra
-set iso http://mirror.yandex.ru/astra/current/orel/iso/live/orel_live_2015030601.iso
+set iso http://mirror.yandex.ru/astra/current/orel/iso/live/orel_live_20150731.iso
 goto load
 ########################
 
