@@ -106,7 +106,7 @@ goto ${selected}
 
 :menu_ubuntu
 menu MagOS_Ubuntu NetLive Menu
-item ubuntu               MagOS_Ubuntu Desktop 15.04
+item ubuntu               MagOS_Ubuntu Desktop 15.10 from linux.nsu.ru
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
 goto ${selected}
 
@@ -258,7 +258,7 @@ goto load
 
 
 :ubuntu
-set iso http://linux.nsu.ru/ubuntu-releases/15.04/ubuntu-15.04-desktop-${archu}.iso
+set iso http://linux.nsu.ru/ubuntu-releases/15.10/ubuntu-15.10-desktop-${archu}.iso
 goto load
 #set repo http://mirror.yandex.ru/ubuntu-cdimage/livecd-base/livecd-base/20150115/
 echo -n Params: && read params
