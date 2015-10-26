@@ -25,7 +25,7 @@ set magos_params_3 uird.load=* uird.noload="" uird.ro=*.xzm,*/live,*/altinst roo
 :start
 menu
 item --gap --             --------------------------------- ALT Linux p7 starterkits ---------------------------------
-menu Boot ALT Linux from internet with MagOS
+menu Boot ALT Linux from Internet with MagOS
 item --gap --             --- installable LiveCDs:
 item alt_cinnamon         Cinnamon
 item alt_e17              E17
