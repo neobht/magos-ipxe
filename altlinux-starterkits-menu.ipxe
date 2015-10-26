@@ -48,6 +48,7 @@ item alt_server_ovz       OpenVZ hardware node
 item --gap --             --- special LiveCDs:
 item alt_builder          Build environment
 item alt_rescue           Rescue/forensic
+item alt_kiosk            Webkiosk-chromium
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
 goto ${selected}
 
@@ -141,5 +142,10 @@ goto load
 :alt_rescue
 set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-rescue-latest-${arch}.iso
 set magos_params_3 uird.ro+=*/rescue ${magos_params_3}
+goto load
+
+:alt_kiosk
+set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-builder-latest-${arch}.iso
+set iso http://mirror.yandex.ru/altlinux-starterkits/beta/live-webkiosk-chromium-20151022-${arch}.iso
 goto load
 
