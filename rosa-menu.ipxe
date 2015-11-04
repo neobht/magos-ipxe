@@ -5,8 +5,8 @@ set submenu-timeout ${menu-timeout}
 #isset ${menu-default} || 
 set menu-default menu_magos
 
-set server_magos http://magos.sibsau.ru/repository
-set base_url /magos/netlive
+set server_magos http://magos.sibsau.ru/
+set base_url /repository/netlive
 set uird_magos uird.magos.cpio.xz
 set uird_soft uird.soft.cpio.xz
 set kernel vmlinuz
