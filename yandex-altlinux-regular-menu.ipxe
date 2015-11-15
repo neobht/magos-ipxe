@@ -33,6 +33,7 @@ item alt_gnome3           GNOME3
 item alt_gnustep          GNUstep (sysvinit)
 item alt_icewm            IceWM (sysvinit)
 item alt_kde4             KDE4
+item alt_kde5             KDE5
 item alt_lxde             LXDE
 item alt_lxqt             LXQt
 item alt_mate             MATE
@@ -93,6 +94,10 @@ goto load
 
 :alt_kde4
 set iso http://mirror.yandex.ru/altlinux-nightly/current/regular-kde4-latest-${arch}.iso
+goto load
+
+:alt_kde5
+set iso http://mirror.yandex.ru/altlinux-nightly/current/regular-kde5-latest-${arch}.iso
 goto load
 
 :alt_tde
