@@ -27,9 +27,10 @@ menu
 item --gap --             --------------------------------- ALT Linux p7  ---------------------------------
 menu Boot ALT Linux from internet with MagOS
 item alt_school_master           Alt Linux School Master
-item alt_school_junior           Alt Linux School Junior
+#item alt_school_junior           Alt Linux School Junior
 item alt_simply           Alt Linux Simply
 item alt_centaurus        Alt Linux Centaurus
+item alt_kdesktop        Alt Linux Kdesktop
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
 goto ${selected}
 
@@ -51,16 +52,21 @@ goto start
 :alt_school_master
 set iso http://mirror.yandex.ru/altlinux/p7/images/school/altlinux-7.0.5.1-school-master-${arch}-ru-install-dvd5.iso
 goto load
+
 :alt_school_junior
 set iso http://mirror.yandex.ru/altlinux/p7/images/school/altlinux-7.0.5-school-junior-${arch}-ru-install-dvd5.iso
 goto load
 
 :alt_simply
-set iso http://mirror.yandex.ru/altlinux/p7/images/simply/altlinux-7.0.4-simply-${arch}-live-dvd5.iso 
+set iso http://mirror.yandex.ru/altlinux/p7/images/simply/altlinux-7.0.5-simply-${arch}-live-dvd5.iso 
 goto load
 
 :alt_centaurus
-set iso http://mirror.yandex.ru/altlinux/p7/images/centaurus/altlinux-7.0.4-centaurus-${arch}-ru-live-cd.iso
+set iso http://mirror.yandex.ru/altlinux/p7/images/centaurus/altlinux-7.0.5-centaurus-${arch}-ru-live-cd.iso
+goto load
+
+:alt_kdesktop
+set iso http://mirror.yandex.ru/altlinux/p7/images/kdesktop/altlinux-7.0.5-kdesktop-${arch}-ru-install-dvd5.iso
 goto load
 
 
