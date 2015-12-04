@@ -31,6 +31,8 @@ item alt_school_master           Alt Linux School Master
 item alt_simply           Alt Linux Simply
 item alt_centaurus        Alt Linux Centaurus
 item alt_kdesktop        Alt Linux Kdesktop
+item --gap --
+item alt_fg             Alt Linux FlightGear
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
 goto ${selected}
 
@@ -69,4 +71,7 @@ goto load
 set iso http://mirror.yandex.ru/altlinux/p7/images/kdesktop/altlinux-7.0.5-kdesktop-${arch}-ru-install-dvd5.iso
 goto load
 
-
+:alt_fg
+set arch x86_64
+set iso http://nightly.altlinux.org/sisyphus/just/fgfs/live-flightgear-20150930-x86_64.iso
+goto load
