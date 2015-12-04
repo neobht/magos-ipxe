@@ -178,7 +178,7 @@ chain ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/vmlinuz-3.14.
 goto start
 
 :cld
-set iso http://mirror.yandex.ru/calculate/CLD/14.12.1/x86_64/cld-14.12.1-x86_64.iso
+set iso http://mirror.yandex.ru/calculate/CLD/15/x86_64/cld-15-x86_64.iso
 set magos_params_2 ${magos_params_2}_c
 goto load
 
