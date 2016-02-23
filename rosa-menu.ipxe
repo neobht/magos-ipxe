@@ -24,8 +24,10 @@ set magos_params_3 uird.load=* uird.noload="" uird.ro=*.xzm,*/ext3fs.img root=ui
 ###################### MAIN MENU ####################################
 :start
 menu MagOS_Rosa NetLive Menu
-item rosa_kde_sibsau        MagOS_Rosa KDE from http://magos.sibsau.ru
-item rosa_lxde_sibsau       MagOS_Rosa LXDE from http://magos.sibsau.ru
+
+item rosa_kde_sibsau        MagOS_Rosa KDE R7 from http://magos.sibsau.ru
+item rosa_kde_plasma_sibsau MagOS_Rosa PLASMA from http://magos.sibsau.ru
+item rosa_lxde_sibsau       MagOS_Rosa LXDE R5 from http://magos.sibsau.ru
 item
 item rosa_kde_rosa          MagOS_Rosa KDE from http://mirror.rosalab.ru
 item rosa_lxqt_rosa         MagOS_Rosa LXQT from http://mirror.rosalab.ru
@@ -58,7 +60,14 @@ goto start
 
 
 :rosa_kde_sibsau
-set iso http://magos.sibsau.ru/repository/netlive/multi/MagOS/iso/rosa/ROSA.FRESH.KDE.R6.${arch}.iso
+set iso http://magos.sibsau.ru/repository/netlive/multi/MagOS/iso/rosa/ROSA.FRESH.KDE.R7.${arch}.iso
+set magos_params_2 /LiveOS/squashfs.img;${magos_params_2}
+#cpuid --ext 29 && set uird_magos ${uird_magos} || set uird_magos r_uird.magos.cpio.xz
+#cpuid --ext 29 && set kernel ${kernel} || set kernel r_vmlinuz
+goto load
+
+:rosa_kde_plasma_sibsau
+set iso http://magos.sibsau.ru/repository/netlive/multi/MagOS/iso/rosa/ROSA.FRESH.PLASMA.R7.${arch}.iso
 set magos_params_2 /LiveOS/squashfs.img;${magos_params_2}
 #cpuid --ext 29 && set uird_magos ${uird_magos} || set uird_magos r_uird.magos.cpio.xz
 #cpuid --ext 29 && set kernel ${kernel} || set kernel r_vmlinuz
