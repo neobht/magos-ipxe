@@ -39,7 +39,7 @@ item --key u menu_ubuntu   Boot MagOS Ubuntu Linux ${archu} from Internet
 item --key p menu_pclos   Boot MagOS PClinuxOS x86_64 from Internet
 #item --key p menu_pra      Boot MagOS PRA Linux from Internet
 item --key f menu_fedora            Boot MagOS Fedora Linux from Internet
-item --key z menu_mint     Boot MagOS Mint Linux from Internet
+#item --key z menu_mint     Boot MagOS Mint Linux from Internet
 item --key d menu_debian   Boot MagOS Debian/Astra Linux from Internet
 item --key d kodi                   Boot MagOS Kodi amd64 Linux from Internet
 item  cld                           Boot MagOS Calculate Linux from Internet
