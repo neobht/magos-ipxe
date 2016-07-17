@@ -36,14 +36,7 @@ item --key z menu_alt_starterkits_y Boot MagOS ALT Linux ${arch} from Internet (
 item --key z menu_alt_regular_y     Boot MagOS ALT Linux ${arch} from Internet (regular) Yandex
 item --key g menu_mageia            Boot MagOS Mageia Linux ${arch} from Internet
 item --key u menu_ubuntu   Boot MagOS Ubuntu Linux ${archu} from Internet
-item --key p menu_pclos   Boot MagOS PClinuxOS x86_64 from Internet
-#item --key p menu_pra      Boot MagOS PRA Linux from Internet
-item --key f menu_fedora            Boot MagOS Fedora Linux from Internet
-#item --key z menu_mint     Boot MagOS Mint Linux from Internet
-item --key d menu_debian   Boot MagOS Debian/Astra Linux from Internet
-item --key d kodi                   Boot MagOS Kodi amd64 Linux from Internet
-item  cld                           Boot MagOS Calculate Linux from Internet
-item  tails                          Boot MagOS Tails Linux from Internet
+
 item
 item --key x exit         Exit iPXE and continue BIOS boot
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
@@ -110,12 +103,6 @@ item ubuntu               MagOS_Ubuntu Desktop 15.10 from linux.nsu.ru
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
 goto ${selected}
 
-:menu_pra
-menu MagOS_Rosa NetLive Menu
-item pra                  MagOS_PRA
-item pra_game             MagOS_PRA_GAME
-choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
-goto ${selected}
 
 ################################
 :load
@@ -130,52 +117,6 @@ goto start
 
 #################################
 
-:pra
-set iso http://mirror.yandex.ru/puppyrus/puppyrus-a/pra03/iso/1501/pra03-1501a.iso
-set arch i586
-set magos_params_2 ${server_magos_sibsau}${base_url}/multi/MagOS/modules/${arch} 
-set magos_params_2 ${magos_params_2}_nonFHS
-echo -n Params: && read params
-set magos_params ${params} ${magos_params_1}${iso};${magos_params_2}/ ${magos_params_3}
-
-initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.soft.cpio.xz || 
-initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.kernel.cpio.xz || 
-initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.magos.cpio.xz || 
-
-chain ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/vmlinuz-3.14.17-pf4 ${magos_params} ||
-goto start
-
-
-:pra_game
-set iso http://mirror.yandex.ru/puppyrus/puppyrus-a/pra03/iso/1501/pra03-1501game.iso
-set arch i586
-set magos_params_2 ${server_magos_sibsau}${base_url}/multi/MagOS/modules/${arch} 
-set magos_params_2 ${magos_params_2}_nonFHS
-echo -n Params: && read params
-set magos_params ${params} ${magos_params_1}${iso};${magos_params_2}/ ${magos_params_3}
-
-initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.soft.cpio.xz || 
-initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.kernel.cpio.xz || 
-initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.magos.cpio.xz || 
-
-chain ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/vmlinuz-3.14.17-pf4 ${magos_params} ||
-goto start
-
-:richy
-set iso http://magos.sibsau.ru/repository/netlive/multi/MagOS/iso/richy/richy-user-219.iso
-set arch i586
-set magos_params_2 ${server_magos_sibsau}${base_url}/multi/MagOS/modules/${arch} 
-set magos_params_2 ${magos_params_2}_nonFHS
-echo -n Params: && read params
-#set magos_params ${params} ${magos_params_1}${iso};${magos_params_2}/ ${magos_params_3}
-set magos_params ${params} ${magos_params_1}${iso} ${magos_params_3}
-
-initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.soft.cpio.xz || 
-initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.kernel.cpio.xz || 
-initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.magos.cpio.xz || 
-
-chain ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/vmlinuz-3.14.17-pf4 ${magos_params} ||
-goto start
 
 :cld
 set iso http://mirror.yandex.ru/calculate/CLD/15/x86_64/cld-15-x86_64.iso
@@ -224,14 +165,7 @@ goto load
 set iso http://dl.amnesia.boum.org/tails/stable/tails-i386-1.6/tails-i386-1.6.iso
 goto load
 
-
-:menu_pclos
-set iso http://mirrors.xservers.ro/pclinuxos/pclinuxos/live-cd/pclinuxos64-kde-fullmonty-2014.12.iso
-goto load
-
-
-
-
+###########################
 :mageia4_1_gnome
 set iso http://mirror.yandex.ru/mageia/iso/4.1/Mageia-4.1-LiveDVD-GNOME-${arch}-DVD/Mageia-4.1-LiveDVD-GNOME-${arch}-DVD.iso
 set magos_params_2 ${magos_params_2}_nonFHS
@@ -252,16 +186,11 @@ set iso http://mirror.yandex.ru/mageia/iso/5/Mageia-5-LiveDVD-GNOME-${arch}-DVD/
 set magos_params_2 ${magos_params_2}_nonFHS
 goto load
 
-:edumagic
-set iso http://linux.mageia.tk/files/testing/15.01.15/EduMagic-ru.iso
-set arch i586
-set magos_params_2 ${magos_params_2}_nonFHS
-goto load
-
-
+###########################
 :ubuntu
 set iso http://linux.nsu.ru/ubuntu-releases/15.10/ubuntu-15.10-desktop-${archu}.iso
 goto load
+
 #set repo http://mirror.yandex.ru/ubuntu-cdimage/livecd-base/livecd-base/20150115/
 echo -n Params: && read params
 set magos_params ${params} uird.from=${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/;${iso};${server_magos_sibsau}${base_url}/multi/MagOS/modules/{arch} uird.load=* uird.noload="" uird.ro=*.xzm,*/live,*.sqfs,*.squashfs root=uird: rw vga=788 lang=ru_RU plymouth.enable=0
