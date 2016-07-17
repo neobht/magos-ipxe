@@ -21,12 +21,12 @@ cpuid --ext 29 && set archf x86_64 || set archf i686
 
 set magos_params_1 uird.from=
 set magos_params_2 ${server_magos_sibsau}${base_url}/multi/MagOS/modules/${arch} 
-set magos_params_3 uird.load=* uird.ro=*.xzm,*.pfs,*/live,*.sqfs,*.squashfs,*.sfs,*/ext3fs.img,*/filesystem.squashfs root=uird: rw vga=788 lang=ru_RU plymouth.enable=0 uird.config=MagOS_Full.ini
+set magos_params_3 uird.load=* uird.ro=*.xzm,*.pfs,*/live,*.sqfs,*.squashfs,*.sfs,*/ext3fs.img,*/filesystem.squashfs  rw vga=788 lang=ru_RU plymouth.enable=0 uird.config=MagOS_Full.ini
 
 ###################### MAIN MENU ####################################
  
 :start
-menu
+menu MagOS Netlive
 item --gap --             ------------------------------------ Operating systems ------------------------------------
 item --key m menu_magos             Boot MagOS Linux from Internet
 item --key r menu_rosa              Boot MagOS Rosa ${arch} from Internet
@@ -38,7 +38,6 @@ item --key g menu_mageia            Boot MagOS Mageia Linux ${arch} from Interne
 item --key u menu_ubuntu   Boot MagOS Ubuntu Linux ${archu} from Internet
 item --key x exit         Exit iPXE and continue BIOS boot
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
-
 goto ${selected}
 
 :cancel
