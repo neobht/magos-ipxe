@@ -34,9 +34,7 @@ item --key a menu_alt               Boot MagOS ALT Linux ${arch} from Internet
 item --key z menu_alt_starterkits   Boot MagOS ALT Linux ${arch} from Internet (starter kits)
 item --key z menu_alt_starterkits_y Boot MagOS ALT Linux ${arch} from Internet (starter kits) Yandex
 item --key z menu_alt_regular_y     Boot MagOS ALT Linux ${arch} from Internet (regular) Yandex
-item --key g menu_mageia            Boot MagOS Mageia Linux ${arch} from Internet
-item --key u menu_ubuntu   Boot MagOS Ubuntu Linux ${archu} from Internet
-item --key x exit         Exit iPXE and continue BIOS boot
+item --key x exit                   Exit iPXE and continue BIOS boot
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
 goto ${selected}
 
@@ -61,46 +59,6 @@ chain yandex-altlinux-regular-menu.ipxe
 :menu_alt
 chain altlinux-menu.ipxe
 
-:menu_fedora
-menu MagOS_Fedora NetLive Menu
-item fedora_kde           MagOS_Fedora KDE
-item fedora_gnome         MagOS_Fedora Gnome
-choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
-goto ${selected}
-
-:menu_debian
-menu MagOS_Debian NetLive Menu
-item debian_lxde           MagOS_Debian LXDE
-item debian_gnome         MagOS_Debian Gnome
-item debian_standard      MagOS_Debian Standard
-item astra                MagOS_Astra Orel
-choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
-goto ${selected}
-
-:menu_mint
-menu MagOS_Mint NetLive Menu
-item mint_cinnamon        MagOS_Mint Cinnamon
-item mint_mate             MagOS_Mint MATE
-choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
-goto ${selected}
-
-:menu_mageia
-menu MagOS_Mageia NetLive Menu
-item mageia4_1_kde            MagOS_Mageia 4.1 KDE
-item mageia4_1_gnome          MagOS_Mageia 4.1 Gnome
-item mageia5_kde              MagOS_Mageia 5 KDE
-item mageia5_gnome            MagOS_Mageia 5 Gnome
-
-choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
-goto ${selected}
-
-:menu_ubuntu
-menu MagOS_Ubuntu NetLive Menu
-item ubuntu               MagOS_Ubuntu Desktop 15.10 from linux.nsu.ru
-choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
-goto ${selected}
-
-
 ################################
 :load
 echo -n Params: && read params
@@ -113,88 +71,3 @@ chain ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/${kernel} ${m
 goto start
 
 #################################
-
-
-:cld
-set iso http://mirror.yandex.ru/calculate/CLD/15/x86_64/cld-15-x86_64.iso
-set magos_params_2 ${magos_params_2}_c
-goto load
-
-:fedora_kde
-set iso http://mirror.yandex.ru/fedora/linux/releases/21/Live/${archf}/Fedora-Live-KDE-${archf}-21-5.iso
-set magos_params_2 /LiveOS/squashfs.img;${magos_params_2}
-goto load
-
-:mint_cinnamon
-set arch x86_64
-set iso http://mirror.yandex.ru/linuxmint/stable/17.3/linuxmint-17.3-cinnamon-64bit.iso
-goto load
-
-:mint_mate
-set arch x86_64
-set iso http://mirror.yandex.ru/linuxmint/stable/17.3/linuxmint-17.3-mate-64bit.iso
-goto load
-
-:kodi
-set iso http://mirror.yandex.ru/mirrors/xbmc/releases/kodibuntu/kodibuntu-14.0~helix_amd64.iso
-goto load
-
-######################
-:debian_lxde
-set iso http://mirror.yandex.ru/debian-cd/current-live/${archu}/iso-hybrid/debian-live-8.2.0-${archu}-lxde-desktop.iso
-goto load
-
-:debian_gnome
-set iso http://mirror.yandex.ru/debian-cd/current-live/${archu}/iso-hybrid/debian-live-8.2.0-${archu}-gnome-desktop.iso
-goto load
-
-:debian_standard
-set iso http://mirror.yandex.ru/debian-cd/current-live/${archu}/iso-hybrid/debian-live-8.2.0-${archu}-standard.iso
-goto load
-
-
-:astra
-set iso http://mirror.yandex.ru/astra/current/orel/iso/live/orel_live_20150731.iso
-goto load
-########################
-
-:tails
-set iso http://dl.amnesia.boum.org/tails/stable/tails-i386-1.6/tails-i386-1.6.iso
-goto load
-
-###########################
-:mageia4_1_gnome
-set iso http://mirror.yandex.ru/mageia/iso/4.1/Mageia-4.1-LiveDVD-GNOME-${arch}-DVD/Mageia-4.1-LiveDVD-GNOME-${arch}-DVD.iso
-set magos_params_2 ${magos_params_2}_nonFHS
-goto load
-
-:mageia4_1_kde
-set iso http://mirror.yandex.ru/mageia/iso/4.1/Mageia-4.1-LiveDVD-KDE4-${arch}-DVD/Mageia-4.1-LiveDVD-KDE4-${arch}-DVD.iso
-set magos_params_2 ${magos_params_2}_nonFHS
-goto load
-
-:mageia5_kde
-set iso http://mirror.yandex.ru/mageia/iso/5/Mageia-5-LiveDVD-KDE4-${arch}-DVD/Mageia-5-LiveDVD-KDE4-${arch}-DVD.iso
-set magos_params_2 ${magos_params_2}_nonFHS
-goto load
-
-:mageia5_gnome
-set iso http://mirror.yandex.ru/mageia/iso/5/Mageia-5-LiveDVD-GNOME-${arch}-DVD/Mageia-5-LiveDVD-GNOME-${arch}-DVD.iso
-set magos_params_2 ${magos_params_2}_nonFHS
-goto load
-
-###########################
-:ubuntu
-set iso http://linux.nsu.ru/ubuntu-releases/15.10/ubuntu-15.10-desktop-${archu}.iso
-goto load
-
-#set repo http://mirror.yandex.ru/ubuntu-cdimage/livecd-base/livecd-base/20150115/
-echo -n Params: && read params
-set magos_params ${params} uird.from=${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/;${iso};${server_magos_sibsau}${base_url}/multi/MagOS/modules/{arch} uird.load=* uird.noload="" uird.ro=*.xzm,*/live,*.sqfs,*.squashfs root=uird: rw vga=788 lang=ru_RU plymouth.enable=0
-
-initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.soft.cpio.xz || 
-initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/uird.magos.cpio.xz || 
-
-chain ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/vmlinuz ${magos_params} ||
-goto start
-
