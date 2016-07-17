@@ -36,8 +36,6 @@ item --key z menu_alt_starterkits_y Boot MagOS ALT Linux ${arch} from Internet (
 item --key z menu_alt_regular_y     Boot MagOS ALT Linux ${arch} from Internet (regular) Yandex
 item --key g menu_mageia            Boot MagOS Mageia Linux ${arch} from Internet
 item --key u menu_ubuntu   Boot MagOS Ubuntu Linux ${archu} from Internet
-
-item
 item --key x exit         Exit iPXE and continue BIOS boot
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
 
