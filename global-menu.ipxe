@@ -11,28 +11,25 @@ set uird_magos uird.magos.cpio.xz
 set uird_soft uird.soft.cpio.xz
 set kernel vmlinuz
 
-
 # Figure out if client is 64-bit capable
 cpuid --ext 29 && set arch x86_64 || set arch i586
 cpuid --ext 29 && set archu amd64 || set archu i386
 cpuid --ext 29 && set archf x86_64 || set archf i686 
-
 
 set magos_params_1 uird.from=
 set magos_params_2 ${server_magos_sibsau}${base_url}/multi/MagOS/modules/${arch} 
 set magos_params_3 uird.load=* uird.ro=*.xzm,*.pfs,*/live,*.sqfs,*.squashfs,*.sfs,*/ext3fs.img,*/filesystem.squashfs root=uird rw vga=788 lang=ru_RU plymouth.enable=0 uird.config=MagOS_Full.ini
 
 ###################### MAIN MENU ####################################
- 
 :start
-menu MagOS Netlive
+menu 
 item --gap --             ------------------------------------ Operating systems ------------------------------------
 item --key m menu_magos             Boot MagOS Linux from Internet
 item --key r menu_rosa              Boot MagOS Rosa ${arch} from Internet
 item --key a menu_alt               Boot MagOS ALT Linux ${arch} from Internet
-item --key z menu_alt_starterkits   Boot MagOS ALT Linux ${arch} from Internet (starter kits)
-item --key z menu_alt_starterkits_y Boot MagOS ALT Linux ${arch} from Internet (starter kits) Yandex
-item --key z menu_alt_regular_y     Boot MagOS ALT Linux ${arch} from Internet (regular) Yandex
+item  menu_alt_starterkits   Boot MagOS ALT Linux ${arch} from Internet (starter kits)
+item  menu_alt_starterkits_y Boot MagOS ALT Linux ${arch} from Internet (starter kits) Yandex
+item  menu_alt_regular_y     Boot MagOS ALT Linux ${arch} from Internet (regular) Yandex
 item --key x exit                   Exit iPXE and continue BIOS boot
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
 goto ${selected}
