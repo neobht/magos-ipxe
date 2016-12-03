@@ -7,6 +7,7 @@ set menu-default menu_magos
 
 set server_magos_sibsau http://magos.sibsau.ru
 set base_url /repository/netlive
+set alt_repo_prefix http://mirror.yandex.ru/altlinux/p8/images/
 set uird_magos uird.magos.cpio.xz
 set uird_soft uird.soft.cpio.xz
 set kernel vmlinuz
@@ -24,15 +25,17 @@ set magos_params_3 uird.load=* uird.noload="" uird.ro=*.xzm,*/live root=uird rw 
 ###################### MAIN MENU ####################################
 :start
 menu
-item --gap --             --------------------------------- ALT Linux p7  ---------------------------------
+item --gap --             --------------------------------- ALT Linux p8  ---------------------------------
 menu Boot ALT Linux from internet with MagOS
-item alt_school_master           Alt Linux School Master
+item alt_education             Alt Education 8.1
+item alt_kworkstation             Alt Kworkstation 8.1
+#item alt_school_master           Alt Linux School Master
 #item alt_school_junior           Alt Linux School Junior
-item alt_simply           Alt Linux Simply
-item alt_centaurus        Alt Linux Centaurus
-item alt_kdesktop        Alt Linux Kdesktop
+#item alt_simply           Alt Linux Simply
+#item alt_centaurus        Alt Linux Centaurus
+#item alt_kdesktop        Alt Linux Kdesktop
 item --gap --
-item alt_fg             Alt Linux FlightGear
+#item alt_fg             Alt Linux FlightGear
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
 goto ${selected}
 
@@ -51,6 +54,14 @@ initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/${uird_magos
 chain ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/${kernel} ${magos_params} ||
 goto start
 ################################
+:alt_education
+set iso ${alt_repo_prefix}/education/alt-education-8.1-${arch}.iso
+goto load
+
+:alt_kworkstation
+set iso ${alt_repo_prefix}/kworkstation/alt-kworkstation-8.1-live-${arch}.iso
+goto load
+
 :alt_school_master
 set iso http://mirror.yandex.ru/altlinux/p7/images/school/altlinux-7.0.5.1-school-master-${arch}-ru-install-dvd5.iso
 goto load
