@@ -1,2 +1,2 @@
 # magos-ipxe
-magos-ipxe scripts
+magos-ipxe scripts & menus
