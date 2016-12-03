@@ -7,6 +7,7 @@ set menu-default menu_magos
 
 set server_magos http://mirror.yandex.ru
 set base_url /mirrors/magos/netlive/
+set alt_repo_prefix http://mirror.yandex.ru/altlinux-starterkits/permalink/alt-p8
 set uird_magos uird.magos.cpio.xz
 set uird_soft uird.soft.cpio.xz
 set kernel vmlinuz
@@ -24,7 +25,7 @@ set magos_params_3 uird.load=* uird.noload="" uird.ro=*.xzm,*/live root=uird rw 
 ###################### MAIN MENU ####################################
 :start
 menu
-item --gap --             --------------------------------- ALT Linux p7 starterkits ---------------------------------
+item --gap --             --------------------------------- ALT Linux p8 starterkits ---------------------------------
 menu Boot ALT Linux from internet with MagOS
 item --gap --             --- installable LiveCDs:
 item alt_cinnamon         Cinnamon
@@ -68,76 +69,76 @@ goto start
 ################################
 
 :alt_cinnamon
-set iso http://mirror.yandex.ru/altlinux-starterkits/permalink/altlinux-p7-cinnamon-latest-${arch}.iso
+set iso ${alt_repo_prefix}-cinnamon-latest-${arch}.iso
 goto load
 
 :alt_e17
-set iso http://mirror.yandex.ru/altlinux-starterkits/permalink/altlinux-p7-e17-latest-${arch}.iso
+set iso ${alt_repo_prefix}-e17-latest-${arch}.iso
 goto load
 
 :alt_gnome3
-set iso http://mirror.yandex.ru/altlinux-starterkits/permalink/altlinux-p7-gnome3-latest-${arch}.iso
+set iso ${alt_repo_prefix}-gnome3-latest-${arch}.iso
 goto load
 
 :alt_gnustep
-set iso http://mirror.yandex.ru/altlinux-starterkits/permalink/altlinux-p7-gnustep-latest-${arch}.iso
+set iso ${alt_repo_prefix}-gnustep-latest-${arch}.iso
 goto load
 
 :alt_icewm
-set iso http://mirror.yandex.ru/altlinux-starterkits/permalink/altlinux-p7-icewm-latest-${arch}.iso
+set iso ${alt_repo_prefix}-icewm-latest-${arch}.iso
 goto load
 
 :alt_lxde
-set iso http://mirror.yandex.ru/altlinux-starterkits/permalink/altlinux-p7-lxde-latest-${arch}.iso
+set iso ${alt_repo_prefix}-lxde-latest-${arch}.iso
 goto load
 
 :alt_lxqt
-set iso http://mirror.yandex.ru/altlinux-starterkits/permalink/altlinux-p7-lxqt-latest-${arch}.iso
+set iso ${alt_repo_prefix}-lxqt-latest-${arch}.iso
 goto load
 
 :alt_mate
-set iso http://mirror.yandex.ru/altlinux-starterkits/permalink/altlinux-p7-mate-latest-${arch}.iso
+set iso ${alt_repo_prefix}-mate-latest-${arch}.iso
 goto load
 
 :alt_kde4
-set iso http://mirror.yandex.ru/altlinux-starterkits/permalink/altlinux-p7-kde4-latest-${arch}.iso
+set iso ${alt_repo_prefix}-kde4-latest-${arch}.iso
 goto load
 
 :alt_tde
-set iso http://mirror.yandex.ru/altlinux-starterkits/permalink/altlinux-p7-tde-latest-${arch}.iso
+set iso ${alt_repo_prefix}-tde-latest-${arch}.iso
 goto load
 
 :alt_wmaker
-set iso http://mirror.yandex.ru/altlinux-starterkits/permalink/altlinux-p7-wmaker-latest-${arch}.iso
+set iso ${alt_repo_prefix}-wmaker-latest-${arch}.iso
 goto load
 
 :alt_xfce
-set iso http://mirror.yandex.ru/altlinux-starterkits/permalink/altlinux-p7-xfce-latest-${arch}.iso
+set iso ${alt_repo_prefix}-xfce-latest-${arch}.iso
 goto load
 
 :alt_jeos
-set iso http://mirror.yandex.ru/altlinux-starterkits/permalink/altlinux-p7-jeos-latest-${arch}.iso
+set iso ${alt_repo_prefix}-jeos-latest-${arch}.iso
 goto load
 
 :alt_server
-set iso http://mirror.yandex.ru/altlinux-starterkits/permalink/altlinux-p7-server-latest-${arch}.iso
+set iso ${alt_repo_prefix}-server-latest-${arch}.iso
 goto load
 
 # x86_64 only
 :alt_server_hyperv
-set iso http://mirror.yandex.ru/altlinux-starterkits/permalink/altlinux-p7-server-hyperv-latest-x86_64.iso
+set iso ${alt_repo_prefix}-server-hyperv-latest-x86_64.iso
 goto load
 
 :alt_server_ovz
-set iso http://mirror.yandex.ru/altlinux-starterkits/permalink/altlinux-p7-server-ovz-latest-${arch}.iso
+set iso ${alt_repo_prefix}-server-ovz-latest-${arch}.iso
 goto load
 
 :alt_builder
-set iso http://mirror.yandex.ru/altlinux-starterkits/permalink/altlinux-p7-builder-latest-${arch}.iso
+set iso ${alt_repo_prefix}-builder-latest-${arch}.iso
 goto load
 
 :alt_rescue
-set iso http://mirror.yandex.ru/altlinux-starterkits/permalink/altlinux-p7-rescue-latest-${arch}.iso
+set iso ${alt_repo_prefix}-rescue-latest-${arch}.iso
 set magos_params_3 uird.ro+=*/rescue ${magos_params_3}
 goto load
 
