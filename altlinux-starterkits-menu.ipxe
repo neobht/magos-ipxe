@@ -24,7 +24,7 @@ set magos_params_3 uird.load=* uird.noload="" uird.ro=*.xzm,*/live,*/altinst roo
 ###################### MAIN MENU ####################################
 :start
 menu
-item --gap --             --------------------------------- ALT Linux p7 starterkits ---------------------------------
+item --gap --             --------------------------------- ALT Linux p8 starterkits ---------------------------------
 menu Boot ALT Linux from Internet with MagOS
 item --gap --             --- installable LiveCDs:
 item alt_cinnamon         Cinnamon
@@ -70,78 +70,78 @@ goto start
 ################################
 
 :alt_cinnamon
-set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-cinnamon-latest-${arch}.iso
+set iso http://nightly.altlinux.org/p8/permalink/alt-p8-cinnamon-latest-${arch}.iso
 goto load
 
 :alt_e17
-set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-e17-latest-${arch}.iso
+set iso http://nightly.altlinux.org/p8/permalink/alt-p8-e17-latest-${arch}.iso
 goto load
 
 :alt_gnome3
-set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-gnome3-latest-${arch}.iso
+set iso http://nightly.altlinux.org/p8/permalink/alt-p8-gnome3-latest-${arch}.iso
 goto load
 
 :alt_gnustep
-set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-gnustep-latest-${arch}.iso
+set iso http://nightly.altlinux.org/p8/permalink/alt-p8-gnustep-latest-${arch}.iso
 goto load
 
 :alt_icewm
-set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-icewm-latest-${arch}.iso
+set iso http://nightly.altlinux.org/p8/permalink/alt-p8-icewm-latest-${arch}.iso
 goto load
 
 :alt_lxde
-set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-lxde-latest-${arch}.iso
+set iso http://nightly.altlinux.org/p8/permalink/alt-p8-lxde-latest-${arch}.iso
 goto load
 
 :alt_lxqt
-set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-lxqt-latest-${arch}.iso
+set iso http://nightly.altlinux.org/p8/permalink/alt-p8-lxqt-latest-${arch}.iso
 goto load
 
 :alt_mate
-set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-mate-latest-${arch}.iso
+set iso http://nightly.altlinux.org/p8/permalink/alt-p8-mate-latest-${arch}.iso
 goto load
 
 :alt_kde4
-set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-kde4-latest-${arch}.iso
+set iso http://nightly.altlinux.org/p8/permalink/alt-p8-kde4-latest-${arch}.iso
 goto load
 
 :alt_tde
-set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-tde-latest-${arch}.iso
+set iso http://nightly.altlinux.org/p8/permalink/alt-p8-tde-latest-${arch}.iso
 goto load
 
 :alt_wmaker
-set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-wmaker-latest-${arch}.iso
+set iso http://nightly.altlinux.org/p8/permalink/alt-p8-wmaker-latest-${arch}.iso
 goto load
 
 :alt_xfce
-set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-xfce-latest-${arch}.iso
+set iso http://nightly.altlinux.org/p8/permalink/alt-p8-xfce-latest-${arch}.iso
 goto load
 
 :alt_jeos
-set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-jeos-latest-${arch}.iso
+set iso http://nightly.altlinux.org/p8/permalink/alt-p8-jeos-latest-${arch}.iso
 goto load
 
 :alt_server
-set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-server-latest-${arch}.iso
+set iso http://nightly.altlinux.org/p8/permalink/alt-p8-server-latest-${arch}.iso
 goto load
 
 # x86_64 only
 :alt_server_hyperv
-set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-server-hyperv-latest-x86_64.iso
+set iso http://nightly.altlinux.org/p8/permalink/alt-p8-server-hyperv-latest-x86_64.iso
 goto load
 
 :alt_server_ovz
-#set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-server-ovz-latest-${arch}.iso
+#set iso http://nightly.altlinux.org/p8/permalink/alt-p8-server-ovz-latest-${arch}.iso
 set iso ${server_magos_sibsau}${base_url}/multi/MagOS/mini/alt
 
 goto load
 
 :alt_builder
-set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-builder-latest-${arch}.iso
+set iso http://nightly.altlinux.org/p8/permalink/alt-p8-builder-latest-${arch}.iso
 goto load
 
 :alt_rescue
-set iso http://nightly.altlinux.org/p7/permalink/altlinux-p7-rescue-latest-${arch}.iso
+set iso http://nightly.altlinux.org/p8/permalink/alt-p8-rescue-latest-${arch}.iso
 set magos_params_3 uird.ro+=*/rescue ${magos_params_3}
 goto load
 
