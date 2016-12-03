@@ -6,7 +6,7 @@ set submenu-timeout ${menu-timeout}
 set menu-default menu_magos
 
 set server_magos http://mirror.yandex.ru
-set base_url /mirrors/magos/netlive/
+set base_url /mirrors/magos/netlive
 set alt_repo_prefix http://mirror.yandex.ru/altlinux-starterkits/permalink/alt-p8
 set uird_magos uird.magos.cpio.xz
 set uird_soft uird.soft.cpio.xz
