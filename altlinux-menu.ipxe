@@ -64,7 +64,7 @@ set iso ${alt_repo_prefix}/kworkstation/alt-kworkstation-8.1-live-${arch}.iso
 goto load
 
 :alt_workstation
-set iso ${alt_repo_prefix}/workstation/alt-workstation-${arch}.iso
+set iso ${alt_repo_prefix}/workstation/alt-workstation-8-${arch}.iso
 goto load
 
 :alt_school_master
