@@ -26,9 +26,10 @@ set magos_params_3 uird.load=* uird.noload="" uird.ro=*.xzm,*/live root=uird rw 
 :start
 menu
 item --gap --             --------------------------------- ALT Linux p8  ---------------------------------
-menu Boot ALT Linux from internet with MagOS
+menu Boot ALT from Internet with MagOS
 item alt_education             Alt Education 8.1
-item alt_kworkstation             Alt Kworkstation 8.1
+item alt_kworkstation             Alt Workstation K 8.1
+item alt_workstation             Alt Workstation 8
 #item alt_school_master           Alt Linux School Master
 #item alt_school_junior           Alt Linux School Junior
 #item alt_simply           Alt Linux Simply
@@ -60,6 +61,10 @@ goto load
 
 :alt_kworkstation
 set iso ${alt_repo_prefix}/kworkstation/alt-kworkstation-8.1-live-${arch}.iso
+goto load
+
+:alt_workstation
+set iso ${alt_repo_prefix}/workstation/alt-workstation-${arch}.iso
 goto load
 
 :alt_school_master
