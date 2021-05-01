@@ -41,8 +41,9 @@ echo -n Params: && read params
 set magos_params_1 uird.from=
 set magos_params_2 ${server_magos_sibsau}${base_url}/2016.64/MagOS/base 
 set magos_params_3 uird.load=/ uird.noload=10-,20-,35-,41-,42-,43-,44-,45-,70- uird.ro=*.xzm,*.pfs,*/live,*.sqfs,*.squashfs,*.sfs,*/ext3fs.img  rw vga=788 lang=ru_RU plymouth.enable=0 uird.config=MagOS_Full.ini
+set magos_params_4 calculate=lang:ru_RU
 
-set magos_params ${params} ${magos_params_1}${iso};${magos_params_2}/ ${magos_params_3}
+set magos_params ${params} ${magos_params_1}${iso};${magos_params_2}/ ${magos_params_3} ${magos_params_4}
 
 #initrd ${server_magos_sibsau}${base_url}/kernel/${arch}/${uird_soft} || 
 initrd ${server_magos_sibsau}${base_url}/2016.64/MagOS/${uird_magos} || 
