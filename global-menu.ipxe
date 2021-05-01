@@ -27,6 +27,7 @@ item --gap --             ------------------------------------ Operating systems
 item --key m menu_magos             Boot MagOS Linux from Internet
 item --key r menu_rosa              Boot MagOS Rosa ${arch} from Internet
 item --key a menu_alt               Boot MagOS ALT Linux ${arch} from Internet
+item --key c menu_calculate         Boot MagOS Calculate ${arch} from Internet
 item  menu_alt_starterkits   Boot MagOS ALT Linux ${arch} from Internet (starter kits)
 item  menu_alt_starterkits_y Boot MagOS ALT Linux ${arch} from Internet (starter kits) Yandex
 item  menu_alt_regular_y     Boot MagOS ALT Linux ${arch} from Internet (regular) Yandex
@@ -43,6 +44,9 @@ chain magos-menu.ipxe
 
 :menu_rosa
 chain rosa-menu.ipxe
+
+:menu_calculate
+chain yandex-calculate-menu.ipxe
 
 :menu_exp
 chain experimental-menu.ipxe
