@@ -428,9 +428,5 @@ set iso http://mirror.yandex.ru/mageia/iso/cauldron/Mageia-5-beta3-LiveDVD-GNOME
 set magos_params_2 ${magos_params_2}_nonFHS
 goto load
 
-:edumagic
-set iso http://linux.mageia.tk/files/testing/15.01.15/EduMagic-ru.iso
-set arch i586
-set magos_params_2 ${magos_params_2}_nonFHS
-goto load
+
 
