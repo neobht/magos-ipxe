@@ -67,7 +67,7 @@ set magos_params ${params} ${magos_params_1}${iso};${magos_params_2}/ ${magos_pa
 #initrd ${server_magos_sibsau}${base_url}/kernel/${arch}/${uird_soft} || 
 initrd ${server_magos_sibsau}${base_url}/2016.64/MagOS/${uird_magos} || 
 
-chain ${server_magos_magos}${base_url}/2016.64/MagOS/${kernel} ${magos_params} ||
+chain ${server_magos_sibsau}${base_url}/2016.64/MagOS/${kernel} ${magos_params} ||
 goto start
 
 ################################
