@@ -1,0 +1,58 @@
+#!ipxe
+# Some menu defaults
+set menu-timeout 5000
+set submenu-timeout ${menu-timeout}
+#isset ${menu-default} || 
+set menu-default menu_magos
+
+set server_magos_sibsau http://magos.sibsau.ru
+set base_url /repository/netlive
+set calculate_repo_prefix http://mirror.yandex.ru/calculate/release/21
+
+set uird_magos uird.magos.cpio.xz
+set uird_soft uird.soft.cpio.xz
+set kernel vmlinuz
+
+
+# Figure out if client is 64-bit capable
+cpuid --ext 29 && set arch x86_64 || set arch i586
+
+
+
+###################### MAIN MENU ####################################
+:start
+menu
+item --gap --             ------------------------------- Calculate Linux ${arch} ---------------------------------
+menu Boot Calculate Linux from Internet with MagOS
+item cld             CLD 21
+
+choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
+goto ${selected}
+
+
+:cancel
+exit
+
+################################
+
+:load_native
+echo -n Params: && read params
+
+set magos_params_1 uird.from=
+set magos_params_2 ${server_magos_sibsau}${base_url}/2016.64/MagOS/base 
+set magos_params_3 uird.load=/ uird.noload=10-,20-,35-,41-,42-,43-,44-,45-,70- uird.ro=*.xzm,*.pfs,*/live,*.sqfs,*.squashfs,*.sfs,*/ext3fs.img  rw vga=788 lang=ru_RU plymouth.enable=0 uird.config=MagOS_Full.ini
+
+set magos_params ${params} ${magos_params_1}${iso};${magos_params_2}/ ${magos_params_3}
+
+#initrd ${server_magos_sibsau}${base_url}/kernel/${arch}/${uird_soft} || 
+initrd ${server_magos_sibsau}${base_url}/2016.64/MagOS/${uird_magos} || 
+
+chain ${server_magos_sibsau}${base_url}/2016.64/MagOS/${kernel} ${magos_params} ||
+goto start
+
+
+################################
+
+:cld
+set iso ${calculate_repo_prefix}/cld-21-x86_64.iso
+goto load_native
