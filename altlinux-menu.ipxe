@@ -7,7 +7,7 @@ set menu-default menu_magos
 
 set server_magos_sibsau http://magos.sibsau.ru
 set base_url /repository/netlive
-set alt_repo_prefix http://mirror.yandex.ru/altlinux/p9/images/
+set alt_repo_prefix http://mirror.yandex.ru/altlinux/p9/images
 set uird_magos uird.magos.cpio.xz
 set uird_soft uird.soft.cpio.xz
 set kernel vmlinuz
@@ -83,16 +83,18 @@ goto load_native
 set iso ${alt_repo_prefix}/workstation/${arch}/alt-workstation-9.1-${arch}.iso
 goto load_native
 
+:alt_simply
+set iso ${alt_repo_prefix}/simply/${arch}/slinux-live-9.1-${arch}.iso
+goto load_native
+
+
+
 :alt_school_master
 set iso http://mirror.yandex.ru/altlinux/p7/images/school/altlinux-7.0.5.1-school-master-${arch}-ru-install-dvd5.iso
 goto load_native
 
 :alt_school_junior
 set iso http://mirror.yandex.ru/altlinux/p7/images/school/altlinux-7.0.5-school-junior-${arch}-ru-install-dvd5.iso
-goto load_native
-
-:alt_simply
-set iso ${alt_repo_prefix}/simply/${arch}/slinux-live-9.1-${arch}.iso
 goto load_native
 
 :alt_centaurus
