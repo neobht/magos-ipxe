@@ -7,7 +7,7 @@ set menu-default menu_magos
 
 set server_magos_sibsau http://magos.sibsau.ru
 set base_url /repository/netlive
-set alt_repo_prefix http://mirror.yandex.ru/altlinux/p8/images/
+set alt_repo_prefix http://mirror.yandex.ru/altlinux/p9/images/
 set uird_magos uird.magos.cpio.xz
 set uird_soft uird.soft.cpio.xz
 set kernel vmlinuz
@@ -25,14 +25,16 @@ set magos_params_3 uird.load=* uird.noload="" uird.ro=*.xzm,*/live root=uird rw 
 ###################### MAIN MENU ####################################
 :start
 menu
-item --gap --             --------------------------------- ALT Linux p8  ---------------------------------
+item --gap --             --------------------------------- ALT Linux p9  ---------------------------------
 menu Boot ALT from Internet with MagOS
-item alt_education             Alt Education 8.1
-item alt_kworkstation             Alt Workstation K 8.1
-item alt_workstation             Alt Workstation 8
+item alt_education             Alt Education 9.1
+item alt_kworkstation             Alt Workstation K 9.1
+item alt_workstation             Alt Workstation 9.1
+item alt_simply             Alt Linux Simply 9.1
+
 #item alt_school_master           Alt Linux School Master
 #item alt_school_junior           Alt Linux School Junior
-#item alt_simply           Alt Linux Simply
+
 #item alt_centaurus        Alt Linux Centaurus
 #item alt_kdesktop        Alt Linux Kdesktop
 item --gap --
@@ -55,37 +57,51 @@ initrd ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/${uird_magos
 chain ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/${kernel} ${magos_params} ||
 goto start
 ################################
+
+:load_native
+echo -n Params: && read params
+set magos_params_2 ${server_magos}${base_url}/2016.64/MagOS/base 
+set magos_params_3 uird.load=/ uird.noload=10-,20-,35-,41-,42-,43-,44-,45-,70- uird.ro=*.xzm,*.pfs,*/live,*.sqfs,*.squashfs,*.sfs,*/ext3fs.img  rw vga=788 lang=ru_RU plymouth.enable=0 uird.config=MagOS_Full.ini
+set magos_params ${params} ${magos_params_1}${iso};${magos_params_2}/ ${magos_params_3}
+
+#initrd ${server_magos_sibsau}${base_url}/kernel/${arch}/${uird_soft} || 
+initrd ${server_magos_sibsau}${base_url}/2016.64/MagOS/${uird_magos} || 
+
+chain ${server_magos_magos}${base_url}/2016.64/MagOS/${kernel} ${magos_params} ||
+goto start
+
+################################
 :alt_education
-set iso ${alt_repo_prefix}/education/alt-education-8.1-${arch}.iso
-goto load
+set iso ${alt_repo_prefix}/education/${arch}/alt-education-9.1-${arch}.iso
+goto load_native
 
 :alt_kworkstation
-set iso ${alt_repo_prefix}/kworkstation/alt-kworkstation-8.1-live-${arch}.iso
-goto load
+set iso ${alt_repo_prefix}/kworkstation/${arch}/alt-kworkstation-9.1-live-${arch}.iso
+goto load_native
 
 :alt_workstation
-set iso ${alt_repo_prefix}/workstation/alt-workstation-8-${arch}.iso
-goto load
+set iso ${alt_repo_prefix}/workstation/${arch}/alt-workstation-9.1-${arch}.iso
+goto load_native
 
 :alt_school_master
 set iso http://mirror.yandex.ru/altlinux/p7/images/school/altlinux-7.0.5.1-school-master-${arch}-ru-install-dvd5.iso
-goto load
+goto load_native
 
 :alt_school_junior
 set iso http://mirror.yandex.ru/altlinux/p7/images/school/altlinux-7.0.5-school-junior-${arch}-ru-install-dvd5.iso
-goto load
+goto load_native
 
 :alt_simply
-set iso http://mirror.yandex.ru/altlinux/p7/images/simply/altlinux-7.0.5-simply-${arch}-live-dvd5.iso 
-goto load
+set iso ${alt_repo_prefix}/simply/${arch}/slinux-live-9.1-${arch}.iso
+goto load_native
 
 :alt_centaurus
 set iso http://mirror.yandex.ru/altlinux/p7/images/centaurus/altlinux-7.0.5-centaurus-${arch}-ru-live-cd.iso
-goto load
+goto load_native
 
 :alt_kdesktop
 set iso http://mirror.yandex.ru/altlinux/p7/images/kdesktop/altlinux-7.0.5-kdesktop-${arch}-ru-install-dvd5.iso
-goto load
+goto load_native
 
 :alt_fg
 set arch x86_64
