@@ -35,6 +35,7 @@ item --gap --             ------------------------------------ Operating systems
 item --key m menu_magos    Boot MagOS Linux from Internet
 item --key r menu_rosa     Boot MagOS_Rosa ${arch} from Internet
 item --key a menu_alt      Boot MagOS_AltLinux ${arch} from Internet
+item --key c cld      Boot MagOS_CLD ${arch} from Internet
 item
 item --key x exit         Exit iPXE and continue BIOS boot
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
@@ -327,9 +328,10 @@ chain ${server_magos_sibsau}${base_url}/multi/MagOS/kernel/${arch}/vmlinuz-3.14.
 goto start
 
 :cld
-set iso http://mirror.yandex.ru/calculate/CLD/14.12.1/x86_64/cld-14.12.1-x86_64.iso
-set magos_params_2 ${magos_params_2}_c
-goto load
+#set iso http://mirror.yandex.ru/calculate/CLD/14.12.1/x86_64/cld-14.12.1-x86_64.iso
+set iso https://mirror.yandex.ru/calculate/release/21/cld-21-x86_64.iso
+#set magos_params_2 ${magos_params_2}_c
+goto load_native
 
 :fedora_kde
 set iso http://mirror.yandex.ru/fedora/linux/releases/21/Live/${archf}/Fedora-Live-KDE-${archf}-21-5.iso
