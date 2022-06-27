@@ -18,7 +18,7 @@ cpuid --ext 29 && set arch x86_64 || set arch i586
 
 set magos_params_from uird.from=
 set magos_params_2 ${server_magos}${base_url}/2021/MagOS/modules/
-set magos_params_3 uird.load=* uird.noload="" uird.ro=*.xzm,*/ext3fs.img vga=788 lang=ru_RU plymouth.enable=0 uird.config=MagOS_Full.ini
+set magos_params_3 uird.load=/ uird.noload="" uird.ro=*.xzm,*/ext3fs.img vga=788 lang=ru_RU plymouth.enable=0 uird.config=MagOS_Full.ini
 
 
 ###################### MAIN MENU ####################################
