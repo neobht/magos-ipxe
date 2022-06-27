@@ -25,6 +25,7 @@ set magos_params_3 uird.load=* uird.ro=*.xzm,*.pfs,*/live,*.sqfs,*.squashfs,*.sf
 menu 
 item --gap --             ------------------------------------ Operating systems ------------------------------------
 item --key m menu_magos             Boot MagOS Linux from Internet
+item --key m menu_magos_y             Boot MagOS Linux from Internet [Yandex mirror]
 item --key r menu_rosa              Boot MagOS Rosa ${arch} from Internet
 item --key a menu_alt               Boot MagOS ALT Linux ${arch} from Internet
 item --key c menu_calculate         Boot MagOS Calculate ${arch} from Internet
@@ -41,6 +42,9 @@ exit
 
 :menu_magos
 chain magos-menu-ftp.ipxe
+
+:menu_magos_y
+chain yandex-magos-menu.ipxe
 
 :menu_rosa
 chain rosa-menu.ipxe
