@@ -44,10 +44,10 @@ set arch x86_64
 echo -n Params: && read params
 set magos_params ${params} uird.config=MagOS_Full.ini ${magos_params_from}${magos_root} ${magos_params_3}
 
-initrd ${server_magos}${base_url}/2021/MagOS/uird.soft.cpio.xz || 
+initrd ${server_magos}${base_url}/2021/MagOS/${uird_magos} || 
 
 
-chain ${server_magos}${base_url}/2021/MagOS/vmlinuz ${magos_params} ||
+chain ${server_magos}${base_url}/2021/MagOS/${kernel} ${magos_params} ||
 goto start
 
 
