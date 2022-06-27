@@ -18,7 +18,7 @@ cpuid --ext 29 && set arch x86_64 || set arch i586
 
 set magos_params_from uird.from=
 set magos_params_2 ${server_magos}${base_url}/2021/MagOS/modules/
-set magos_params_3 uird.load=* uird.noload="" uird.ro=*.xzm,*/ext3fs.img root=uird rw vga=788 lang=ru_RU plymouth.enable=0 uird.config=MagOS_Full.ini
+set magos_params_3 uird.load=* uird.noload="" uird.ro=*.xzm,*/ext3fs.img vga=788 lang=ru_RU plymouth.enable=0 uird.config=MagOS_Full.ini
 
 
 ###################### MAIN MENU ####################################
@@ -42,7 +42,7 @@ set magos_root http://ftp.magos-linux.ru/netlive/2021/MagOS/
 set arch x86_64
 
 echo -n Params: && read params
-set magos_params ${params} uird.config=MagOS_Full.ini ${magos_params_from}${magos_root} ${magos_params_3}
+set magos_params ${params} ${magos_params_from}${magos_root} ${magos_params_3}
 
 initrd ${server_magos}${base_url}/2021/MagOS/${uird_magos} || 
 
