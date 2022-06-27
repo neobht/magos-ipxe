@@ -5,7 +5,7 @@ set submenu-timeout ${menu-timeout}
 #isset ${menu-default} || 
 set menu-default menu_magos
 
-set server_magos http://mirror.yandex.ru/mirrors/magos/
+set server_magos http://mirror.yandex.ru/mirrors/magos
 set base_url /netlive
 set uird_magos uird.magos.cpio.xz
 set uird_soft uird.soft.cpio.xz
@@ -37,7 +37,7 @@ exit
 
 ################################
 :magos_2021
-set magos_root ${server_magos}
+set magos_root ${server_magos}${base_url}/2021/MagOS/
 
 set arch x86_64
 
