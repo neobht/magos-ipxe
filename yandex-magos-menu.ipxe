@@ -37,7 +37,7 @@ exit
 
 ################################
 :magos_2021
-set magos_root http://ftp.magos-linux.ru/netlive/2021/MagOS/
+set magos_root ${server_magos}
 
 set arch x86_64
 
