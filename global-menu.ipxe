@@ -40,7 +40,7 @@ goto ${selected}
 exit
 
 :menu_magos
-chain magos-menu.ipxe
+chain magos-menu-ftp.ipxe
 
 :menu_rosa
 chain rosa-menu.ipxe
