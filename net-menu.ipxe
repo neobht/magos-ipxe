@@ -7,8 +7,8 @@ set submenu-timeout ${menu-timeout}
 set menu-default menu_magos
 
 
-set server_magos http://magos.sibsau.ru
-set base_url /netlive/2021
+set server_magos http://ftp.magos-linux.ru
+set base_url /netlive
 
 
 
