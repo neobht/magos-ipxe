@@ -33,7 +33,7 @@ menu
 item --gap --             ------------------------------------ Operating systems ------------------------------------
 item --key m menu_magos    Boot MagOS Linux from Internet
 item --key r menu_rosa     Boot MagOS_Rosa ${arch} from Internet
-item --key a menu_alt      Boot MagOS_AltLinux ${arch} from Internet
+item --key a alt_server      Boot MagOS_AltLinux ${arch} from Internet
 item --key c cld      Boot MagOS_CLD ${arch} from Internet
 item --key c redos      Boot MagOS_RedOS ${arch} from Internet
 item
@@ -59,4 +59,9 @@ goto start
 ################################### RedOS #################################
 :redos
 set iso http://files.red-soft.ru/redos/7.3/x86_64/live/redos-MUROM-7.3.2-LIVE-20221117.1-x86_64.iso
+goto load_native
+
+################################### Alt ################################
+:alt_server
+set iso http://nightly.altlinux.org/p10/permalink/alt-p10-server-systemd-latest-${arch}.iso
 goto load_native
