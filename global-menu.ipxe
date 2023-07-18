@@ -33,6 +33,7 @@ item  menu_alt_starterkits   Boot MagOS ALT Linux ${arch} from Internet (starter
 item  menu_alt_starterkits_y Boot MagOS ALT Linux ${arch} from Internet (starter kits) Yandex
 item  menu_alt_regular_y     Boot MagOS ALT Linux ${arch} from Internet (regular) Yandex
 item --key e menu_exp               Boot Experimental Menu ${arch} from Internet
+item menu_net                 Boot Net Menu from Internet
 item --key x exit                   Exit iPXE and continue BIOS boot
 choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
 goto ${selected}
@@ -54,6 +55,9 @@ chain yandex-calculate-menu.ipxe
 
 :menu_exp
 chain experimental-menu.ipxe
+
+:menu_net
+chain net-menu.ipxe
 
 :menu_alt_starterkits
 chain altlinux-starterkits-menu.ipxe
