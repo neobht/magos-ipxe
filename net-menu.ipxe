@@ -1,0 +1,62 @@
+#!ipxe
+
+# Some menu defaults
+set menu-timeout 5000
+set submenu-timeout ${menu-timeout}
+#isset ${menu-default} || 
+set menu-default menu_magos
+
+
+set server_magos http://magos.sibsau.ru
+set base_url /netlive/2021
+
+
+
+set uird_magos uird.magos.cpio.xz
+set uird_soft uird.soft.cpio.xz
+set kernel vmlinuz
+
+
+# Figure out if client is 64-bit capable
+cpuid --ext 29 && set arch x86_64 || set arch i586
+cpuid --ext 29 && set archu amd64 || set archu i386
+cpuid --ext 29 && set archf x86_64 || set archf i686 
+
+
+set magos_params_1 uird.from=
+set magos_params_2 ${server_magos}${base_url}/modules/${arch} 
+set magos_params_3 uird.load=/ uird.ro=*.xzm,*.pfs,*/live,*.sqfs,*.squashfs,*.sfs,*/ext3fs.img  rw vga=788 lang=ru_RU plymouth.enable=0 uird.config=MagOS_Full.ini
+
+###################### MAIN MENU ####################################
+:start
+menu
+item --gap --             ------------------------------------ Operating systems ------------------------------------
+item --key m menu_magos    Boot MagOS Linux from Internet
+item --key r menu_rosa     Boot MagOS_Rosa ${arch} from Internet
+item --key a menu_alt      Boot MagOS_AltLinux ${arch} from Internet
+item --key c cld      Boot MagOS_CLD ${arch} from Internet
+item --key c redos      Boot MagOS_RedOS ${arch} from Internet
+item
+item --key x exit         Exit iPXE and continue BIOS boot
+choose --timeout ${menu-timeout} --default ${menu-default} selected || goto cancel
+
+goto ${selected}
+
+:cancel
+exit
+
+:load_native
+echo -n Params: && read params
+set magos_params_2 ${server_magos}${base_url}/2021/MagOS/base 
+set magos_params_3 uird.load=/ uird.noload=10-,20-,35-,41-,42-,43-,44-,45-,70- uird.ro=*.xzm,*.pfs,*/live,*.sqfs,*.squashfs,*.sfs,*/ext3fs.img  rw vga=788 lang=ru_RU plymouth.enable=0 uird.config=MagOS_Full.ini
+set magos_params ${params} ${magos_params_1}${iso};${magos_params_2}/ ${magos_params_3}
+
+initrd ${server_magos}${base_url}/2021/MagOS/${uird_magos} || 
+
+chain ${server_magos}${base_url}/2021/MagOS/${kernel} ${magos_params} ||
+goto start
+
+################################### RedOS #################################
+:redos
+set iso http://files.red-soft.ru/redos/7.3/x86_64/live/redos-MUROM-7.3.2-LIVE-20221117.1-x86_64.iso
+goto load_native
