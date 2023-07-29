@@ -32,9 +32,9 @@ set magos_params_3 uird.load=/ uird.ro=*.xzm,*.pfs,*/live,*.sqfs,*.squashfs,*.sf
 menu
 item --gap --             ------------------------------------ Operating systems ------------------------------------
 item --key m menu_magos    Boot MagOS Linux from Internet
-item --key r menu_rosa     Boot MagOS_Rosa ${arch} from Internet
-item --key a alt_server      Boot MagOS_AltLinux ${arch} from Internet
-item --key c cld      Boot MagOS_CLD ${arch} from Internet
+#item --key r menu_rosa     Boot MagOS_Rosa ${arch} from Internet
+item --key a alt_server      Boot MagOS_AltLinux Server ${arch} from Internet
+#item --key c cld      Boot MagOS_CLD ${arch} from Internet
 item --key c redos      Boot MagOS_RedOS ${arch} from Internet
 item
 item --key x exit         Exit iPXE and continue BIOS boot
@@ -65,3 +65,6 @@ goto load_native
 :alt_server
 set iso http://nightly.altlinux.org/p10/permalink/alt-p10-server-systemd-latest-${arch}.iso
 goto load_native
+
+:menu_magos
+chain yandex-magos-menu.ipxe
