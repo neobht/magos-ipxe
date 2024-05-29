@@ -58,7 +58,7 @@ goto start
 
 ################################### RedOS #################################
 :redos
-set iso http://files.red-soft.ru/redos/7.3/x86_64/live/redos-MUROM-7.3.2-LIVE-20221117.1-x86_64.iso
+set iso http://files.red-soft.ru/redos/7.3/x86_64/live/redos-MUROM-7.3.4-LIVE-20231222.1-x86_64.iso
 goto load_native
 
 ################################### Alt ################################
