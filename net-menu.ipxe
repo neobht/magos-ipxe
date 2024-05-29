@@ -63,7 +63,7 @@ goto load_native
 
 ################################### Alt ################################
 :alt_iso
-set iso http://nightly.altlinux.org/p10/permalink/alt-p11-engineering-live-latest-${arch}.iso
+set iso http://nightly.altlinux.org/p11/permalink/alt-p11-engineering-live-latest-${arch}.iso
 goto load_native
 
 :menu_magos
