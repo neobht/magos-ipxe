@@ -33,7 +33,7 @@ menu
 item --gap --             ------------------------------------ Operating systems ------------------------------------
 item --key m menu_magos    Boot MagOS Linux from Internet
 #item --key r menu_rosa     Boot MagOS_Rosa ${arch} from Internet
-item --key a alt_server      Boot MagOS_AltLinux Server ${arch} from Internet
+item --key a alt_iso      Boot MagOS_AltLinux ISO ${arch} from Internet
 #item --key c cld      Boot MagOS_CLD ${arch} from Internet
 item --key c redos      Boot MagOS_RedOS ${arch} from Internet
 item
@@ -48,7 +48,7 @@ exit
 :load_native
 echo -n Params: && read params
 set magos_params_2 ${server_magos}${base_url}/2021/MagOS/base 
-set magos_params_3 uird.load=/ uird.noload=10-,20-,35-,41-,42-,43-,44-,45-,70- uird.ro=*.xzm,*.pfs,*/live,*.sqfs,*.squashfs,*.sfs,*/ext3fs.img  rw vga=788 lang=ru_RU plymouth.enable=0 uird.config=MagOS_Full.ini
+set magos_params_3 uird.load=/ uird.noload=10-,20-,35-,41-,42-,43-,51-,52-,70- uird.ro=*.xzm,*.pfs,*/live,*.sqfs,*.squashfs,*.sfs,*/ext3fs.img  rw vga=788 lang=ru_RU plymouth.enable=0 uird.config=MagOS_Full.ini
 set magos_params ${params} ${magos_params_1}${iso};${magos_params_2}/ ${magos_params_3}
 
 initrd ${server_magos}${base_url}/2021/MagOS/${uird_magos} || 
@@ -62,8 +62,8 @@ set iso http://files.red-soft.ru/redos/7.3/x86_64/live/redos-MUROM-7.3.2-LIVE-20
 goto load_native
 
 ################################### Alt ################################
-:alt_server
-set iso http://nightly.altlinux.org/p10/permalink/alt-p10-server-systemd-latest-${arch}.iso
+:alt_iso
+set iso http://nightly.altlinux.org/p10/permalink/alt-p11-engineering-live-latest-${arch}.iso
 goto load_native
 
 :menu_magos
